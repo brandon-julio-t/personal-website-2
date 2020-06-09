@@ -1,7 +1,7 @@
 import "twin.macro"
 
 import Icon from "@mdi/react"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { mdiGithub } from "@mdi/js"
 
 import { Button, Card, H3, Section, SectionHeader } from "../../index"
@@ -10,13 +10,15 @@ export default () => {
   const [pinnedRepos, setPinnedRepos] = useState([])
   const [errorMessage, setErrorMessage] = useState("")
 
-  fetch("https://api.github.com/graphql", {
-    headers: {
-      Authorization: `bearer ${process.env.GITHUB_GRAPHQL_API_TOKEN}`,
-    },
-    method: "POST",
-    body: JSON.stringify({
-      query: `
+  useEffect(() => {
+    async function fetchPinnedRepositories() {
+      const response = await fetch("https://api.github.com/graphql", {
+        headers: {
+          Authorization: `bearer ${process.env.GITHUB_GRAPHQL_API_TOKEN}`,
+        },
+        method: "POST",
+        body: JSON.stringify({
+          query: `
         query {
           viewer {
             pinnedItems(first: 10) {
@@ -38,16 +40,20 @@ export default () => {
           }
         }
       `,
-    }),
-  })
-    .then(res => res.json())
-    .then(json => {
+        }),
+      })
+
+      const json = await response.json()
+
       if (json.errors) {
         setErrorMessage(json.errors[0].message)
       } else {
         setPinnedRepos(json.data?.viewer?.pinnedItems?.nodes)
       }
-    })
+    }
+
+    fetchPinnedRepositories()
+  })
 
   return (
     <Section>
