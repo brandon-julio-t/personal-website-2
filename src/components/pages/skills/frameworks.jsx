@@ -1,8 +1,10 @@
 import "twin.macro"
 
 import React from "react"
+import loadable from "@loadable/component"
 
-import { H2, H3 } from "./components"
+const H2 = loadable(() => import("./components/h2"))
+const H3 = loadable(() => import("./components/h3"))
 
 export default () => (
   <section>

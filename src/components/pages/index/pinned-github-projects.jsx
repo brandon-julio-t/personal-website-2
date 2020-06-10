@@ -2,10 +2,15 @@ import "twin.macro"
 
 import Icon from "@mdi/react"
 import React, { useState, useEffect } from "react"
+import loadable from "@loadable/component"
 
-import { mdiGithub } from "@mdi/js"
+import { mdiGithub, mdiLaunch } from "@mdi/js"
 
-import { Button, Card, H3, Section, SectionHeader } from "./components"
+const Button = loadable(() => import("./components/button"))
+const Card = loadable(() => import("./components/card"))
+const H3 = loadable(() => import("./components/h3"))
+const Section = loadable(() => import("./components/section"))
+const SectionHeader = loadable(() => import("./components/section-header"))
 
 export default () => {
   const [pinnedRepos, setPinnedRepos] = useState(undefined)
@@ -82,8 +87,25 @@ export default () => {
                 </div>
 
                 <div tw="flex flex-row justify-between items-center">
-                  <Button href={repo.homepageUrl}>View Live</Button>
-                  <a href={repo.url} aria-label="View on GitHub">
+                  <Button
+                    href={repo.homepageUrl}
+                    tw="flex flex-row items-center"
+                  >
+                    <span tw="mr-2">View Live</span>
+
+                    <Icon
+                      path={mdiLaunch}
+                      title="View Live"
+                      tw="h-6 inline-block"
+                    />
+                  </Button>
+
+                  <a
+                    aria-label="View on GitHub"
+                    href={repo.url}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <Icon path={mdiGithub} title="View on GitHub" tw="h-10" />
                   </a>
                 </div>

@@ -9,6 +9,8 @@ module.exports = {
     author: `@brandon_julio_t`,
   },
   plugins: [
+    `gatsby-plugin-loadable-components-ssr`,
+    `gatsby-plugin-webpack-bundle-analyser-v2`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
@@ -48,9 +50,9 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images/ // See below to configure properly
-        }
-      }
-    }
+          include: /images/, // See below to configure properly
+        },
+      },
+    },
   ],
 }

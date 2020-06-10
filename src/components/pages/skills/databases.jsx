@@ -1,14 +1,15 @@
 import "twin.macro"
 
 import React from "react"
+import loadable from "@loadable/component"
 
-import { H2 } from "./components"
+const H2 = loadable(() => import("./components/h2"))
 
 export default () => (
   <section>
     <H2>Databases</H2>
 
-    <ul tw="ml-4 list-disc">
+    <ul tw="ml-8 list-disc">
       {databases.sort().map((item, idx) => (
         <li key={idx}>{item}</li>
       ))}

@@ -1,14 +1,19 @@
 import "twin.macro"
 
 import React from "react"
+import loadable from "@loadable/component"
 
 import Layout from "../components/layout"
 
-import {
-  Certificates,
-  PinnedGithubProjects,
-  TechnicalSkillsOverview,
-} from "../components/pages/index"
+const Certificates = loadable(() =>
+  import("../components/pages/index/certificates")
+)
+const PinnedGithubProjects = loadable(() =>
+  import("../components/pages/index/pinned-github-projects")
+)
+const TechnicalSkillsOverview = loadable(() =>
+  import("../components/pages/index/technical-skills-overview")
+)
 
 export default () => (
   <Layout title="Home">

@@ -2,8 +2,7 @@ import "twin.macro"
 
 import Icon from "@mdi/react"
 import React from "react"
-
-import { Button, Card, H3, Section, SectionHeader } from "./components"
+import loadable from "@loadable/component"
 
 import {
   mdiDatabase,
@@ -13,6 +12,12 @@ import {
   mdiReact,
   mdiVuejs,
 } from "@mdi/js"
+
+const Button = loadable(() => import("./components/button"))
+const Card = loadable(() => import("./components/card"))
+const H3 = loadable(() => import("./components/h3"))
+const Section = loadable(() => import("./components/section"))
+const SectionHeader = loadable(() => import("./components/section-header"))
 
 export default () => (
   <Section>
@@ -26,7 +31,11 @@ export default () => (
           <ul>
             {skill.items.map((item, idx) => (
               <li key={idx} tw="flex flex-row items-center my-4">
-                <Icon path={item.icon} title={`${item.label} Logo`} tw="inline-block h-6 mr-4" />
+                <Icon
+                  path={item.icon}
+                  title={`${item.label} Logo`}
+                  tw="inline-block h-6 mr-4"
+                />
                 {item.label}
               </li>
             ))}

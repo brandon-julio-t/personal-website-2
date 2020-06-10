@@ -1,19 +1,21 @@
 import "twin.macro"
 
 import React from "react"
-import {
-  APIsAndMicroservices,
-  FrontEndLibraries,
-  JavaBasic,
-  JavaScriptAlgorithmsAndDataStructures,
-  JavaScriptBasic,
-  ReactBasic,
-  ResponsiveWebDesign,
-  TokopediaSTARTSummit,
-  TypingSpeed,
-} from "../../images/certificates"
+import loadable from "@loadable/component"
 
-import { Section, SectionHeader } from "./components"
+const Section = loadable(() => import("./components/section"))
+const SectionHeader  = loadable(() => import("./components/section-header"))
+
+const APIsAndMicroservices = loadable(() => import("../../images/certificates/apis-and-microservices"))
+const FrontEndLibraries = loadable(() => import("../../images/certificates/front-end-libraries"))
+const JavaBasic = loadable(() => import("../../images/certificates/java-basic"))
+const JavaScriptAlgorithmsAndDataStructures = loadable(() => import("../../images/certificates/javascript-algorithms-and-data-structures"))
+const JavaScriptBasic = loadable(() => import("../../images/certificates/apis-and-microservices"))
+const ReactBasic = loadable(() => import("../../images/certificates/react-basic"))
+const ResponsiveWebDesign = loadable(() => import("../../images/certificates/responsive-web-design"))
+const TokopediaSTARTSummit = loadable(() => import("../../images/certificates/tokopedia-start-summit"))
+const TypingSpeed = loadable(() => import("../../images/certificates/typing-speed"))
+
 
 export default () => (
   <Section>

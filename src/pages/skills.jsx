@@ -1,15 +1,16 @@
 import "twin.macro"
 
 import React from "react"
+import loadable from "@loadable/component"
 
 import Layout from "../components/layout"
 
-import {
-  Databases,
-  Frameworks,
-  Languages,
-  Others,
-} from "../components/pages/skills"
+const Databases = loadable(() => import("../components/pages/skills/databases"))
+const Frameworks = loadable(() =>
+  import("../components/pages/skills/frameworks")
+)
+const Languages = loadable(() => import("../components/pages/skills/languages"))
+const Others = loadable(() => import("../components/pages/skills/others"))
 
 export default () => (
   <Layout title="Technical Skills">

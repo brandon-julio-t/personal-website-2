@@ -1,6 +1,5 @@
 import "twin.macro"
 
 import React from "react"
-import { H2 } from "./index"
 
-export default props => <H2 tw="text-center my-4" {...props} />
+export default props => <h2 tw="text-center text-4xl my-4" {...props}>{props.children}</h2>
