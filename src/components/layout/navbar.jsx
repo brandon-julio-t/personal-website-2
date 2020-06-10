@@ -25,13 +25,13 @@ export default () => (
       "
   >
     <Link to="/">
-      Home <NavIcon path={mdiHome} />
+      Home <NavIcon path={mdiHome} title="Home" />
     </Link>
     <Link to="/skills">
-      Skills <NavIcon path={mdiTools} />
+      Skills <NavIcon path={mdiTools} title="Skills" />
     </Link>
     <Link to="/curriculum-vitae">
-      CV <NavIcon path={mdiFileDocument} />
+      CV <NavIcon path={mdiFileDocument} title="Curriculum Vitae" />
     </Link>
   </nav>
 )
