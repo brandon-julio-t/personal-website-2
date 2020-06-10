@@ -36,13 +36,15 @@ export default () => (
     <section tw="grid grid-cols-2 gap-4">
       <div>
         <CreditParagraph>
-          Built with Gatsby <CreditIcon path={mdiGatsby} />
+          Built with Gatsby
+          <CreditIcon title={`Gatsby Logo`} path={mdiGatsby} />
         </CreditParagraph>
         <CreditParagraph>
-          Designed with Tailwind CSS <CreditIcon path={mdiTailwind} />
+          Designed with Tailwind CSS
+          <CreditIcon title={`Tailwind CSS Logo`} path={mdiTailwind} />
         </CreditParagraph>
         <CreditParagraph>
-          Powered by React <CreditIcon path={mdiReact} />
+          Powered by React <CreditIcon title={`React Logo`} path={mdiReact} />
         </CreditParagraph>
       </div>
 
