@@ -7,13 +7,13 @@ import { mdiGithub } from "@mdi/js"
 import { Button, Card, H3, Section, SectionHeader } from "../../index"
 
 export default () => {
-  const [pinnedRepos, setPinnedRepos] = useState([])
-  const [errorMessage, setErrorMessage] = useState("")
-  const [rateLimitData, setRateLimitData] = useState({})
+  const [pinnedRepos, setPinnedRepos] = useState(undefined)
+  const [errorMessage, setErrorMessage] = useState(undefined)
+  const [rateLimitData, setRateLimitData] = useState(undefined)
 
   useEffect(() => {
-    async function fetchPinnedRepositories() {
-      const response = await fetch("https://api.github.com/graphql", {
+    async function fetchPinnedRepos() {
+      const res = await fetch("https://api.github.com/graphql", {
         headers: {
           Authorization: `bearer ${process.env.GITHUB_GRAPHQL_API_TOKEN}`,
         },
@@ -21,17 +21,14 @@ export default () => {
         body: JSON.stringify({ query: gitHubGraphql }),
       })
 
-      const json = await response.json()
+      const json = await res.json()
 
-      if (json.errors) {
-        setErrorMessage(json.errors[0].message)
-      } else {
-        setPinnedRepos(json.data?.viewer?.pinnedItems?.nodes)
-        setRateLimitData(json.data?.rateLimit)
-      }
+      setErrorMessage(json?.errors?.[0]?.message)
+      setPinnedRepos(json?.data?.viewer?.pinnedItems?.nodes)
+      setRateLimitData(json?.data?.rateLimit)
     }
 
-    fetchPinnedRepositories()
+    fetchPinnedRepos()
   }, [])
 
   return (
@@ -39,12 +36,12 @@ export default () => {
       <SectionHeader>Pinned GitHub Projects</SectionHeader>
 
       <small tw="text-center font-light mb-4 block">
-        Query count remaining: {rateLimitData.remaining}
+        Query count remaining: {rateLimitData?.remaining ?? "Loading..."}
         <br />
-        Will reset at: {prettyDateTime(rateLimitData.resetAt)}
+        Will reset at: {prettyDateTime(rateLimitData?.resetAt) ?? "Loading..."}
       </small>
 
-      {errorMessage && pinnedRepos.length === 0 ? (
+      {errorMessage && !pinnedRepos ? (
         <Card tw="max-w-xs mx-auto">
           <p tw="text-center">
             {errorMessage}
@@ -55,7 +52,7 @@ export default () => {
             Please come by another day.
           </p>
         </Card>
-      ) : pinnedRepos.length === 0 ? (
+      ) : !pinnedRepos || pinnedRepos.length === 0 ? (
         <p tw="text-center">
           The robots are busy loading.
           <br />
@@ -99,6 +96,7 @@ export default () => {
 }
 
 const prettyDate = date =>
+  date &&
   new Intl.DateTimeFormat("en-US", {
     day: "numeric",
     month: "long",
@@ -106,6 +104,7 @@ const prettyDate = date =>
   }).format(new Date(date))
 
 const prettyDateTime = date =>
+  date &&
   new Intl.DateTimeFormat("en-US", {
     day: "numeric",
     month: "long",
