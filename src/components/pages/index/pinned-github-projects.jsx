@@ -15,7 +15,7 @@ export default () => {
     async function fetchPinnedRepos() {
       const res = await fetch("https://api.github.com/graphql", {
         headers: {
-          Authorization: `bearer ${process.env.GITHUB_GRAPHQL_API_TOKEN}`,
+          Authorization: `bearer ${process.env.GATSBY_GITHUB_GRAPHQL_API_TOKEN}`,
         },
         method: "POST",
         body: JSON.stringify({ query: gitHubGraphql }),
