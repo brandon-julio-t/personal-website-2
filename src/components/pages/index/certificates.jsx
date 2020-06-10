@@ -9,11 +9,11 @@ import {
   JavaScriptBasic,
   ReactBasic,
   ResponsiveWebDesign,
-  Section,
-  SectionHeader,
   TokopediaSTARTSummit,
   TypingSpeed,
-} from "../../index"
+} from "../../images/certificates"
+
+import { Section, SectionHeader } from "./components"
 
 export default () => (
   <Section>

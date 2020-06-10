@@ -59,7 +59,7 @@ export default () => (
 
 const ContactIcon = tw(Icon)`h-10 mx-2`
 const CreditIcon = tw(Icon)`h-6 ml-2 inline-block`
-const CreditParagraph = tw.p`flex flex-row items-center justify-end`
+const CreditParagraph = tw.p`flex flex-row items-center justify-end text-right`
 
 const ExternalLink = props => (
   <a rel="noopener noreferrer" target="_blank" {...props}>

@@ -3,7 +3,7 @@ import "twin.macro"
 import Icon from "@mdi/react"
 import React from "react"
 
-import { Button, Card, H3, Section, SectionHeader } from "../../index"
+import { Button, Card, H3, Section, SectionHeader } from "./components"
 
 import {
   mdiDatabase,
@@ -18,7 +18,7 @@ export default () => (
   <Section>
     <SectionHeader>Technical Skills Overview</SectionHeader>
 
-    <div tw="grid grid-cols-2 gap-4">
+    <div tw="grid grid-cols-1 md:grid-cols-2 gap-4">
       {skills.map((skill, idx) => (
         <Card key={idx}>
           <H3>{skill.label}</H3>

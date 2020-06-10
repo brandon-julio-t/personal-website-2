@@ -2,9 +2,10 @@ import "twin.macro"
 
 import Icon from "@mdi/react"
 import React, { useState, useEffect } from "react"
+
 import { mdiGithub } from "@mdi/js"
 
-import { Button, Card, H3, Section, SectionHeader } from "../../index"
+import { Button, Card, H3, Section, SectionHeader } from "./components"
 
 export default () => {
   const [pinnedRepos, setPinnedRepos] = useState(undefined)
@@ -59,7 +60,7 @@ export default () => {
           Please wait warmly...
         </p>
       ) : (
-        <div tw="grid grid-cols-3 gap-4">
+        <div tw="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {pinnedRepos.map((repo, repoIdx) => (
             <div tw="flex flex-col" key={repoIdx}>
               <Card tw="flex-shrink">
