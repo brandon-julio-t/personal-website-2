@@ -69,36 +69,41 @@ const socials = [
   {
     label: "Email",
     href: "mailto:brandon.julio.t@icloud.com",
-    Component: <ContactIcon path={mdiEmail} />,
+    Component: <ContactIcon title="Email" path={mdiEmail} />,
   },
   {
     label: "Facebook Profile",
     href: "https://www.facebook.com/profile.php?id=100008724798107",
-    Component: <ContactIcon path={mdiFacebook} />,
+    Component: <ContactIcon title="Facebook Profile" path={mdiFacebook} />,
   },
   {
     label: "freeCodecamp Profile",
     href: "https://www.freecodecamp.org/brandon-julio-thenaro",
-    Component: <FreeCodecamp tw="h-10 w-10 mx-2 inline-block" />,
+    Component: (
+      <FreeCodecamp
+        title="freeCodecamp Profile"
+        tw="h-10 w-10 mx-2 inline-block"
+      />
+    ),
   },
   {
     label: "GitHub Profile",
     href: "https://github.com/brandon-julio-t",
-    Component: <ContactIcon path={mdiGithub} />,
+    Component: <ContactIcon title="GitHub Profile" path={mdiGithub} />,
   },
   {
     label: "Instagram Profile",
     href: "https://www.instagram.com/brandon.julio.t",
-    Component: <ContactIcon path={mdiInstagram} />,
+    Component: <ContactIcon title="Instagram Profile" path={mdiInstagram} />,
   },
   {
     label: "LinkedIn Profile",
     href: "https://www.linkedin.com/in/brandonjuliothenaro",
-    Component: <ContactIcon path={mdiLinkedin} />,
+    Component: <ContactIcon title="LinkedIn Profile" path={mdiLinkedin} />,
   },
   {
     label: "Twitter Profile",
     href: "https://twitter.com/brandon_julio_t",
-    Component: <ContactIcon path={mdiTwitter} />,
+    Component: <ContactIcon title="Twitter Profile" path={mdiTwitter} />,
   },
 ]

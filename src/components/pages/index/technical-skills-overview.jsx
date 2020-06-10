@@ -26,7 +26,7 @@ export default () => (
           <ul>
             {skill.items.map((item, idx) => (
               <li key={idx} tw="flex flex-row items-center my-4">
-                <Icon tw="inline-block h-6 mr-4" path={item.icon} />
+                <Icon path={item.icon} title={`${item.label} Logo`} tw="inline-block h-6 mr-4" />
                 {item.label}
               </li>
             ))}
