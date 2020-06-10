@@ -83,7 +83,7 @@ export default () => {
                 <div tw="flex flex-row justify-between items-center">
                   <Button href={repo.homepageUrl}>View Live</Button>
                   <a href={repo.url} aria-label="View on GitHub">
-                    <Icon path={mdiGithub} title="View on GitHub" tw="h-8" />
+                    <Icon path={mdiGithub} title="View on GitHub" tw="h-10" />
                   </a>
                 </div>
               </Card>
