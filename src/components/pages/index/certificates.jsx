@@ -22,7 +22,7 @@ export default () => (
     <div tw="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
       {certificates.map((cert, idx) => (
         <a
-          aria-label=""
+          aria-label={cert.label}
           href={cert.url}
           rel="noopener noreferrer"
           target="_blank"
