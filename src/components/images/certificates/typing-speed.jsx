@@ -8,7 +8,7 @@ export default props => {
       file(relativePath: { eq: "Typing Speed.jpg" }) {
         childImageSharp {
           fluid {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

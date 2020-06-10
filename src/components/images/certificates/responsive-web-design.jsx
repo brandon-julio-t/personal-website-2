@@ -8,7 +8,7 @@ export default props => {
       file(relativePath: { eq: "Responsive Web Design.png" }) {
         childImageSharp {
           fluid {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

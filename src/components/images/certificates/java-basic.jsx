@@ -8,7 +8,7 @@ export default props => {
       file(relativePath: { eq: "Java (Basic).png" }) {
         childImageSharp {
           fluid {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

@@ -8,7 +8,7 @@ export default props => {
       file(relativePath: { eq: "Front End Libraries.png" }) {
         childImageSharp {
           fluid {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

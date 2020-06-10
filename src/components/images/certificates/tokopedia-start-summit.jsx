@@ -8,7 +8,7 @@ export default props => {
       file(relativePath: { eq: "Tokopedia START Summit.png" }) {
         childImageSharp {
           fluid {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
