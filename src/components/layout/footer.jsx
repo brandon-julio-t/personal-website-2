@@ -23,7 +23,7 @@ const NetlifyLight = loadable(() => import("../../images/netlify-light.svg"))
 
 export default () => (
   <footer tw="grid grid-rows-2 grid-flow-col mb-16">
-    <section tw="flex flex-row justify-center">
+    <section tw="flex flex-row flex-wrap justify-center">
       {socials.map((s, idx) =>
         s.label === "Email" ? (
           <a aria-label={s.label} href={s.href} key={idx}>
@@ -40,15 +40,23 @@ export default () => (
     <section tw="grid grid-cols-2 gap-4">
       <div>
         <CreditParagraph>
-          Built with Gatsby
+          Built with{" "}
+          <ExternalLink href="https://www.gatsbyjs.org">Gatsby</ExternalLink>
           <CreditIcon title={`Gatsby Logo`} path={mdiGatsby} />
         </CreditParagraph>
+
         <CreditParagraph>
-          Designed with Tailwind CSS
+          Designed with{" "}
+          <ExternalLink href="https://tailwindcss.com">
+            Tailwind CSS
+          </ExternalLink>
           <CreditIcon title={`Tailwind CSS Logo`} path={mdiTailwind} />
         </CreditParagraph>
+
         <CreditParagraph>
-          Powered by React <CreditIcon title={`React Logo`} path={mdiReact} />
+          Powered by{" "}
+          <ExternalLink href="https://reactjs.org">React</ExternalLink>
+          <CreditIcon title={`React Logo`} path={mdiReact} />
         </CreditParagraph>
       </div>
 
@@ -63,10 +71,10 @@ export default () => (
 
 const ContactIcon = tw(Icon)`h-10 mx-2`
 const CreditIcon = tw(Icon)`h-6 ml-2 inline-block`
-const CreditParagraph = tw.p`flex flex-row items-center justify-end text-right`
+const CreditParagraph = tw.p`text-right`
 
 const ExternalLink = props => (
-  <a rel="noopener noreferrer" target="_blank" {...props}>
+  <a rel="noopener noreferrer" target="_blank" tw="underline" {...props}>
     {props.children}
   </a>
 )

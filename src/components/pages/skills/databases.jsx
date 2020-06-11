@@ -4,25 +4,17 @@ import loadable from "@loadable/component"
 
 const React = loadable(() => import("react"))
 
-const H2 = loadable(() => import("./components/h2"))
+const SkillSection = loadable(() => import("./components/skill-section"))
 
-export default () => (
-  <section>
-    <H2>Databases</H2>
-
-    <ul tw="ml-8 list-disc">
-      {databases.sort().map((item, idx) => (
-        <li key={idx}>{item}</li>
-      ))}
-    </ul>
-  </section>
-)
+export default () => <SkillSection title="Databases" skills={databases} />
 
 const databases = [
-  "FaunaDB",
-  "MongoDB",
-  "MySQL",
-  "PostgreSQL",
-  "SQL Server",
-  "SQLite",
+  {
+    title: "NoSQL",
+    items: ["FaunaDB", "MongoDB"],
+  },
+  {
+    title: "SQL",
+    items: ["MySQL", "PostgreSQL", "SQL Server", "SQLite"],
+  },
 ]

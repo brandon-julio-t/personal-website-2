@@ -4,39 +4,10 @@ import loadable from "@loadable/component"
 
 const React = loadable(() => import("react"))
 
-const Section = loadable(() => import("./components/section"))
-const SectionHeader = loadable(() => import("./components/section-header"))
-
-const APIsAndMicroservices = loadable(() =>
-  import("../../images/certificates/apis-and-microservices")
-)
-const FrontEndLibraries = loadable(() =>
-  import("../../images/certificates/front-end-libraries")
-)
-const JavaBasic = loadable(() => import("../../images/certificates/java-basic"))
-const JavaScriptAlgorithmsAndDataStructures = loadable(() =>
-  import("../../images/certificates/javascript-algorithms-and-data-structures")
-)
-const JavaScriptBasic = loadable(() =>
-  import("../../images/certificates/apis-and-microservices")
-)
-const ReactBasic = loadable(() =>
-  import("../../images/certificates/react-basic")
-)
-const ResponsiveWebDesign = loadable(() =>
-  import("../../images/certificates/responsive-web-design")
-)
-const TokopediaSTARTSummit = loadable(() =>
-  import("../../images/certificates/tokopedia-start-summit")
-)
-const TypingSpeed = loadable(() =>
-  import("../../images/certificates/typing-speed")
-)
+const IndexSection = loadable(() => import("./components/index-section"))
 
 export default () => (
-  <Section>
-    <SectionHeader>Certificates</SectionHeader>
-
+  <IndexSection title="Certificates">
     <div tw="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
       {certificates.map((cert, idx) => (
         <a
@@ -50,52 +21,66 @@ export default () => (
         </a>
       ))}
     </div>
-  </Section>
+  </IndexSection>
 )
 
 const certificates = [
   {
-    Component: ResponsiveWebDesign,
+    Component: loadable(() =>
+      import(`../../images/certificates/responsive-web-design`)
+    ),
     label: "Responsive Web Design Certificate",
     url: "https://bit.ly/35OoTpT",
   },
   {
-    Component: JavaScriptAlgorithmsAndDataStructures,
+    Component: loadable(() =>
+      import(
+        `../../images/certificates/javascript-algorithms-and-data-structures`
+      )
+    ),
     label: "JavaScript Algorithms and Data Structures Certificate",
     url: "https://bit.ly/3dA7eFe",
   },
   {
-    Component: FrontEndLibraries,
+    Component: loadable(() =>
+      import(`../../images/certificates/front-end-libraries`)
+    ),
     label: "Front End Libraries Certificate",
     url: "https://bit.ly/2YTCNpg",
   },
   {
-    Component: APIsAndMicroservices,
+    Component: loadable(() =>
+      import(`../../images/certificates/apis-and-microservices`)
+    ),
     label: "APIs and Microservices Certificate",
     url: "https://bit.ly/301Cvx8",
   },
   {
-    Component: JavaBasic,
+    Component: loadable(() => import(`../../images/certificates/java-basic`)),
     label: "Java Basic Certificate by HackerRank",
     url: "https://bit.ly/2YjFn5V",
   },
   {
-    Component: JavaScriptBasic,
+    Component: loadable(() =>
+      import(`../../images/certificates/apis-and-microservices`)
+    ),
     label: "JavaScript Basic Certificate by HackerRank",
     url: "https://bit.ly/2UpwkQ0",
   },
   {
-    Component: ReactBasic,
+    Component: loadable(() => import(`../../images/certificates/react-basic`)),
     label: "React Basic Certificate by HackerRank",
     url: "https://bit.ly/2MK8kmd",
   },
   {
-    Component: TokopediaSTARTSummit,
+    Component: loadable(() =>
+      import(`../../images/certificates/tokopedia-start-summit`)
+    ),
     label: "Tokopedia START Summit Certificate",
     url: "https://bit.ly/2xPxg83",
   },
   {
-    Component: TypingSpeed,
+    Component: loadable(() => import(`../../images/certificates/typing-speed`)),
     label: "Typing Speed Certificate by RataType",
     url: "https://bit.ly/2WH3M4U",
   },

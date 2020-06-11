@@ -24,14 +24,15 @@ export default function Button(props) {
 }
 
 const base = `
-bg-black
+border
+border-gray-500
 duration-300
-hover:shadow-lg
+hover:border-black
+hover:shadow-md
 px-3
 py-2
 rounded
 shadow
-text-white
 transition
 `
 

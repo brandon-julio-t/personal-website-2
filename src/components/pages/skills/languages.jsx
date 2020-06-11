@@ -4,30 +4,9 @@ import loadable from "@loadable/component"
 
 const React = loadable(() => import("react"))
 
-const H2 = loadable(() => import("./components/h2"))
-const H3 = loadable(() => import("./components/h3"))
+const SkillSection = loadable(() => import("./components/skill-section"))
 
-export default () => (
-  <section>
-    <H2>Languages</H2>
-
-    <ul tw="ml-4">
-      {languages.map((lang, idx) => (
-        <li key={idx} tw="my-2">
-          <H3>{lang.title}</H3>
-
-          <hr tw="my-2" />
-
-          <ul tw="ml-4 list-disc">
-            {lang.items.sort().map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ul>
-  </section>
-)
+export default () => <SkillSection title="Languages" skills={languages} />
 
 const languages = [
   {

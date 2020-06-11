@@ -10,8 +10,7 @@ const React = loadable(() => import("react"))
 const Button = loadable(() => import("./components/button"))
 const Card = loadable(() => import("./components/card"))
 const H3 = loadable(() => import("./components/h3"))
-const Section = loadable(() => import("./components/section"))
-const SectionHeader = loadable(() => import("./components/section-header"))
+const IndexSection = loadable(() => import("./components/index-section"))
 
 export default memo(() => {
   const [pinnedRepos, setPinnedRepos] = useState(undefined)
@@ -39,9 +38,7 @@ export default memo(() => {
   }, [])
 
   return (
-    <Section>
-      <SectionHeader>Pinned GitHub Projects</SectionHeader>
-
+    <IndexSection title="Pinned GitHub Projects">
       <small tw="text-center font-light mb-4 block">
         Query count remaining: {rateLimitData?.remaining ?? "Loading..."}
         <br />
@@ -115,7 +112,7 @@ export default memo(() => {
           ))}
         </div>
       )}
-    </Section>
+    </IndexSection>
   )
 })
 
