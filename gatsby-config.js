@@ -7,14 +7,17 @@ module.exports = {
     title: `Personal Website`,
     description: `Personal website with Gatsby.js`,
     author: `@brandon_julio_t`,
+    siteUrl: `https://www.brandonjuliothenaro.my.id`,
   },
   plugins: [
-    `gatsby-plugin-loadable-components-ssr`,
-    `gatsby-plugin-webpack-bundle-analyser-v2`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-loadable-components-ssr`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-robots-txt`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-webpack-bundle-analyser-v2`,
     `gatsby-transformer-sharp`,
 
     {
@@ -52,6 +55,23 @@ module.exports = {
         rule: {
           include: /images/, // See below to configure properly
         },
+      },
+    },
+
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.brandonjuliothenaro.my.id`,
+      },
+    },
+
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `tomato`,
+        // Disable the loading spinner.
+        showSpinner: false,
       },
     },
   ],
