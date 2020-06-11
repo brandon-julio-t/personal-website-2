@@ -7,7 +7,15 @@
     X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "1; mode=block"
 
-    Content-Security-Policy = "default-src https:"
+    Content-Security-Policy = """
+      default-src 'none';
+      script-src 'self';
+      connect-src 'self';
+      img-src 'self';
+      style-src 'self';
+      base-uri 'self';
+      form-action 'self'
+    """
 
     Feature-Policy = """
       accelerometer 'none';
@@ -36,5 +44,5 @@
       sync-xhr 'self';
       usb 'none';
       wake-lock 'none';
-      xr-spatial-tracking 'none';
+      xr-spatial-tracking 'none'
     """
