@@ -1,5 +1,4 @@
-import Icon from "@mdi/react"
-import React from "react"
+import loadable from "@loadable/component"
 import tw from "twin.macro"
 
 import {
@@ -14,8 +13,13 @@ import {
   mdiTwitter,
 } from "@mdi/js"
 
-import NetlifyLight from "../../images/netlify-light.svg"
-import FreeCodecamp from "../../images/free-code-camp-logo.svg"
+const Icon = loadable(() => import("@mdi/react"))
+const React = loadable(() => import("react"))
+
+const FreeCodecamp = loadable(() =>
+  import("../../images/free-code-camp-logo.svg")
+)
+const NetlifyLight = loadable(() => import("../../images/netlify-light.svg"))
 
 export default () => (
   <footer tw="grid grid-rows-2 grid-flow-col mb-16">

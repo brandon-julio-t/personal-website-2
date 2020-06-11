@@ -1,9 +1,11 @@
+import PropTypes from "prop-types"
+import loadable from "@loadable/component"
 import tw from "twin.macro"
-
-import React from "react"
 import { Link } from "gatsby"
 
-export default props => {
+const React = loadable(() => import("react"))
+
+export default function Button(props) {
   const { href, to } = props
 
   if (to) return <GatsbyLink to={`${to}`} {...props} />
@@ -32,3 +34,8 @@ text-white
 const GatsbyLink = tw(Link)`${base}`
 const RegularLink = tw.a`${base}`
 const RegularButton = tw.button`${base}`
+
+Button.propTypes = {
+  href: PropTypes.string,
+  to: PropTypes.string
+}

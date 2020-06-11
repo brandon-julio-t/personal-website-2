@@ -1,9 +1,10 @@
 import "twin.macro"
 
-import React from "react"
 import loadable from "@loadable/component"
 
-import Layout from "../components/layout"
+const React = loadable(() => import("react"))
+
+const Layout = loadable(() => import("../components/layout"))
 
 const Certificates = loadable(() =>
   import("../components/pages/index/certificates")

@@ -6,9 +6,11 @@
  */
 
 import PropTypes from "prop-types"
-import React from "react"
+import loadable from "@loadable/component"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+
+const React = loadable(() => import("react"))
 
 export default function SEO(props) {
   const { description, lang, meta, title } = props

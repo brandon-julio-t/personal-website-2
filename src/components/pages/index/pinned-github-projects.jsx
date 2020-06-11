@@ -1,10 +1,12 @@
 import "twin.macro"
 
-import Icon from "@mdi/react"
-import React, { useState, useEffect } from "react"
+import { memo, useEffect, useState } from "react"
 import loadable from "@loadable/component"
 
 import { mdiGithub, mdiLaunch } from "@mdi/js"
+
+const Icon = loadable(() => import("@mdi/react"))
+const React = loadable(() => import("react"))
 
 const Button = loadable(() => import("./components/button"))
 const Card = loadable(() => import("./components/card"))
@@ -12,7 +14,7 @@ const H3 = loadable(() => import("./components/h3"))
 const Section = loadable(() => import("./components/section"))
 const SectionHeader = loadable(() => import("./components/section-header"))
 
-export default () => {
+export default memo(() => {
   const [pinnedRepos, setPinnedRepos] = useState(undefined)
   const [errorMessage, setErrorMessage] = useState(undefined)
   const [rateLimitData, setRateLimitData] = useState(undefined)
@@ -116,7 +118,7 @@ export default () => {
       )}
     </Section>
   )
-}
+})
 
 const prettyDate = date =>
   date &&

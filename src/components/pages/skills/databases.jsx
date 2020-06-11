@@ -1,7 +1,8 @@
 import "twin.macro"
 
-import React from "react"
 import loadable from "@loadable/component"
+
+const React = loadable(() => import("react"))
 
 const H2 = loadable(() => import("./components/h2"))
 

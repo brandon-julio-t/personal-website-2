@@ -1,6 +1,8 @@
+import loadable from "@loadable/component"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
-import React from "react"
+
+const Img = loadable(() => import("gatsby-image"))
+const React = loadable(() => import("react"))
 
 export default props => {
   const data = useStaticQuery(graphql`

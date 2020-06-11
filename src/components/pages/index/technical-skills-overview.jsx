@@ -1,7 +1,5 @@
 import "twin.macro"
 
-import Icon from "@mdi/react"
-import React from "react"
 import loadable from "@loadable/component"
 
 import {
@@ -12,6 +10,9 @@ import {
   mdiReact,
   mdiVuejs,
 } from "@mdi/js"
+
+const Icon = loadable(() => import("@mdi/react"))
+const React = loadable(() => import("react"))
 
 const Button = loadable(() => import("./components/button"))
 const Card = loadable(() => import("./components/card"))
@@ -45,7 +46,7 @@ export default () => (
     </div>
 
     <div tw="flex flex-row justify-center my-5">
-      <Button to="/skills">View More</Button>
+      <Button to="/skills">View More 👀</Button>
     </div>
   </Section>
 )
