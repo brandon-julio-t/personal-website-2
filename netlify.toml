@@ -8,13 +8,15 @@
     X-XSS-Protection = "1; mode=block"
 
     Content-Security-Policy = """
-      default-src 'none';
-      script-src 'self';
-      connect-src 'self';
-      img-src 'self';
-      style-src 'self';
       base-uri 'self';
-      form-action 'self'
+      connect-src *;
+      default-src 'none';
+      form-action 'self';
+      img-src *;
+      manifest-src 'self';
+      prefetch-src 'self';
+      script-src 'self' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline';
     """
 
     Feature-Policy = """
