@@ -1,12 +1,12 @@
 import "twin.macro"
 
 import PropTypes from "prop-types"
-import React from "react"
 import loadable from "@loadable/component"
 
 const Footer = loadable(() => import("./footer"))
-const SEO = loadable(() => import("./seo"))
 const Navbar = loadable(() => import("./navbar"))
+const React = loadable(() => import("react"))
+const SEO = loadable(() => import("./seo"))
 
 export default function Layout(props) {
   return (

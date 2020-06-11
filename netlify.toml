@@ -7,9 +7,9 @@
     X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "1; mode=block"
 
-    Content-Security-Policy: "default-src https:"
+    Content-Security-Policy = "default-src https:"
 
-    Feature-Policy: """
+    Feature-Policy = """
       accelerometer 'none';
       ambient-light-sensor 'none';
       autoplay 'none';
