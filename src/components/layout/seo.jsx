@@ -19,9 +19,10 @@ export default function SEO(props) {
       query {
         site {
           siteMetadata {
-            title
-            description
             author
+            description
+            siteUrl
+            title
           }
         }
         favicon: file(relativePath: { eq: "icon.jpg" }) {
@@ -58,7 +59,7 @@ export default function SEO(props) {
         },
         {
           property: `og:image`,
-          content: favicon.childImageSharp.fluid.srcWebp,
+          content: `${site.siteMetadata.siteUrl}${favicon.childImageSharp.fluid.srcWebp}`,
         },
         {
           property: `og:type`,
@@ -80,15 +81,9 @@ export default function SEO(props) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ].concat(meta ?? [])}
     />
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
 }
 
 SEO.propTypes = {
