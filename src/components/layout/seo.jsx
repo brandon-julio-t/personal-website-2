@@ -14,7 +14,7 @@ const React = loadable(() => import("react"))
 
 export default function SEO(props) {
   const { description, lang, meta, title } = props
-  const { site } = useStaticQuery(
+  const { site, favicon } = useStaticQuery(
     graphql`
       query {
         site {
@@ -24,11 +24,18 @@ export default function SEO(props) {
             author
           }
         }
+        favicon: file(relativePath: { eq: "icon.jpg" }) {
+          childImageSharp {
+            fluid {
+              srcWebp
+            }
+          }
+        }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description ?? site.siteMetadata.description
 
   return (
     <Helmet
@@ -48,6 +55,10 @@ export default function SEO(props) {
         {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: favicon.childImageSharp.fluid.srcWebp,
         },
         {
           property: `og:type`,
