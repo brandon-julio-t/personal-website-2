@@ -1,9 +1,8 @@
 import "twin.macro"
 
-import { memo, useEffect, useState } from "react"
 import loadable from "@loadable/component"
-
 import { mdiGithub, mdiLaunch } from "@mdi/js"
+import { memo, useEffect, useState } from "react"
 
 const Icon = loadable(() => import("@mdi/react"))
 const React = loadable(() => import("react"))

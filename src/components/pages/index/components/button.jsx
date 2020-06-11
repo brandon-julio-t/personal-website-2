@@ -25,10 +25,14 @@ export default function Button(props) {
 
 const base = `
 bg-black
+duration-300
+hover:shadow-lg
 px-3
 py-2
 rounded
+shadow
 text-white
+transition
 `
 
 const GatsbyLink = tw(Link)`${base}`
@@ -37,5 +41,5 @@ const RegularButton = tw.button`${base}`
 
 Button.propTypes = {
   href: PropTypes.string,
-  to: PropTypes.string
+  to: PropTypes.string,
 }

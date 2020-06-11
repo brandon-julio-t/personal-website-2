@@ -45,9 +45,12 @@ export default () => (
       ))}
     </div>
 
-    <div tw="flex flex-row justify-center my-5">
-      <Button to="/skills">View More 👀</Button>
-    </div>
+    <Button to="/skills" tw="flex flex-row justify-center my-5">
+      View More
+      <span role="img" aria-label="Eyes emoji">
+        👀
+      </span>
+    </Button>
   </Section>
 )
 
