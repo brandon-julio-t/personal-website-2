@@ -6,6 +6,7 @@ interface ButtonProps {
   className?: string
   href?: string
   isIcon: boolean
+  onClick?: React.MouseEventHandler
   to?: string
   type?: "button" | "submit" | "reset"
 }

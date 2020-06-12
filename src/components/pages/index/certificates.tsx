@@ -3,20 +3,15 @@ import "twin.macro"
 import loadable from "@loadable/component"
 
 const IndexSection = loadable(() => import("./components/index-section"))
+const Button = loadable(() => import("../../common/button"))
 
 export default () => (
   <IndexSection title="Certificates">
     <div tw="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
       {certificates.map((cert, idx) => (
-        <a
-          aria-label={cert.label}
-          href={cert.url}
-          rel="noopener noreferrer"
-          target="_blank"
-          key={idx}
-        >
+        <Button aria-label={cert.label} href={cert.url} isIcon={true} key={idx}>
           <cert.Component tw="transition duration-300 shadow-md hover:shadow-xl" />
-        </a>
+        </Button>
       ))}
     </div>
   </IndexSection>
