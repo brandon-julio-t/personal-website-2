@@ -15,12 +15,14 @@ import {
 
 const Icon = loadable(() => import("@mdi/react"))
 
+const Button = loadable(() => import("../common/button"))
+
 const FreeCodeCamp = loadable(() =>
-  // @ts-ignore
+  // @ts-ignore: this works
   import("../../images/free-code-camp-logo.svg")
 )
 
-// @ts-ignore
+// @ts-ignore: this works
 const NetlifyLight = loadable(() => import("../../images/netlify-light.svg"))
 
 export default () => (
@@ -32,58 +34,55 @@ export default () => (
             {s.Component}
           </a>
         ) : (
-          <ExternalLink aria-label={s.label} href={s.href} key={idx}>
+          <Button aria-label={s.label} href={s.href} isIcon={true} key={idx}>
             {s.Component}
-          </ExternalLink>
+          </Button>
         )
       )}
     </section>
 
     <section tw="flex flex-col my-5">
-      <CreditParagraph>
+      <CenteredParagraph>
         Built with{" "}
-        <ExternalLink href="https://www.gatsbyjs.org">Gatsby</ExternalLink>
-        <CreditIcon title="Gatsby Logo" path={mdiGatsby} />
-      </CreditParagraph>
+        <Button href="https://www.gatsbyjs.org" isIcon={true}>
+          Gatsby
+        </Button>
+        <InlineIcon title="Gatsby Logo" path={mdiGatsby} />
+      </CenteredParagraph>
 
-      <CreditParagraph>
+      <CenteredParagraph>
         Designed with{" "}
-        <ExternalLink href="https://tailwindcss.com">Tailwind CSS</ExternalLink>
-        <CreditIcon title="Tailwind CSS Logo" path={mdiTailwind} />
-      </CreditParagraph>
+        <Button href="https://tailwindcss.com" isIcon={true}>
+          Tailwind CSS
+        </Button>
+        <InlineIcon title="Tailwind CSS Logo" path={mdiTailwind} />
+      </CenteredParagraph>
 
-      <CreditParagraph>
-        Powered by <ExternalLink href="https://reactjs.org">React</ExternalLink>
-        <CreditIcon title="React Logo" path={mdiReact} />
-      </CreditParagraph>
+      <CenteredParagraph>
+        Powered by{" "}
+        <Button href="https://reactjs.org" isIcon={true}>
+          React
+        </Button>
+        <InlineIcon title="React Logo" path={mdiReact} />
+      </CenteredParagraph>
 
-      <ExternalLink
+      <Button
         aria-label="Netlify logo"
         href="https://www.netlify.com"
+        isIcon={true}
         tw="flex justify-center my-5"
       >
         <NetlifyLight />
-      </ExternalLink>
+      </Button>
     </section>
   </footer>
 )
 
-// @ts-ignore
+const CenteredParagraph = tw.p`text-center`
+// @ts-ignore: this works
 const ContactIcon = tw(Icon)`h-10 mx-2`
-// @ts-ignore
-const CreditIcon = tw(Icon)`h-6 ml-2 inline-block`
-const CreditParagraph = tw.p`text-center`
-
-interface ExternalLink {
-  children: React.ReactNode
-  href: string
-}
-
-const ExternalLink = (props: ExternalLink) => (
-  <a rel="noopener noreferrer" target="_blank" tw="underline" {...props}>
-    {props.children}
-  </a>
-)
+// @ts-ignore: this works
+const InlineIcon = tw(Icon)`h-6 ml-2 inline-block`
 
 const socials = [
   {

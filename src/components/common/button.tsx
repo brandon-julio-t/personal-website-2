@@ -1,16 +1,31 @@
-import PropTypes from "prop-types"
 import tw from "twin.macro"
 import { Link } from "gatsby"
 
-export default function Button(props) {
-  const { href, to } = props
+interface ButtonProps {
+  children: React.ReactNode
+  className?: string
+  href?: string
+  isIcon: boolean
+  to?: string
+  type?: "button" | "submit" | "reset"
+}
 
-  if (to) return <GatsbyLink to={`${to}`} {...props} />
+export default (props: ButtonProps) => {
+  const { children, href, isIcon, to } = props
+
+  if (to) return <GatsbyLink to={to} {...props} />
+
+  if (isIcon && href)
+    return (
+      <a href={href} rel="noopener noreferrer" target="_blank" className={props.className}>
+        {children}
+      </a>
+    )
 
   if (href)
     return (
       <RegularLink
-        href={`${href}`}
+        href={href}
         rel="noopener noreferrer"
         target="_blank"
         {...props}
@@ -21,6 +36,9 @@ export default function Button(props) {
 }
 
 const base = `
+active:bg-gray-100
+active:shadow-lg
+focus:shadow-lg
 border
 duration-300
 hover:border-gray-500
@@ -32,12 +50,7 @@ shadow
 transition
 `
 
-// @ts-ignore
+// @ts-ignore: this works
 const GatsbyLink = tw(Link)`${base}`
 const RegularLink = tw.a`${base}`
 const RegularButton = tw.button`${base}`
-
-Button.propTypes = {
-  href: PropTypes.string,
-  to: PropTypes.string,
-}

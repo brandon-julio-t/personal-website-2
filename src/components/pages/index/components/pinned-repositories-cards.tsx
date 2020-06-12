@@ -27,7 +27,7 @@ interface PinnedRepository {
 }
 
 interface PinnedRepositoriesCardsProps {
-    pinnedRepos: PinnedRepository[]
+  pinnedRepos: PinnedRepository[]
 }
 
 export default (props: PinnedRepositoriesCardsProps) => (
@@ -53,20 +53,19 @@ export default (props: PinnedRepositoriesCardsProps) => (
           </div>
 
           <div tw="flex flex-row justify-between items-center">
-            <Button href={repo.homepageUrl} tw="flex flex-row items-center">
+            <Button
+              href={repo.homepageUrl}
+              isIcon={false}
+              tw="flex flex-row items-center"
+            >
               <span tw="mr-2">View Live</span>
 
               <Icon path={mdiLaunch} title="View Live" tw="h-6 inline-block" />
             </Button>
 
-            <a
-              aria-label="View on GitHub"
-              href={repo.url}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <Button aria-label="View on GitHub" isIcon={true} href={repo.url}>
               <Icon path={mdiGithub} title="View on GitHub" tw="h-10" />
-            </a>
+            </Button>
           </div>
         </Card>
       </div>

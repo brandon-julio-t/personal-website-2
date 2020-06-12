@@ -21,10 +21,13 @@ export default () => (
       <input type="hidden" name="form-name" value="contact" />
 
       <input
-        type="text"
+        autoCapitalize="words"
+        autoComplete="name"
+        autoFocus={true}
         name="Name"
         placeholder="Name (Optional)"
         tw="border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4"
+        type="text"
       />
 
       <textarea

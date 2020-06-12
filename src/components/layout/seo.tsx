@@ -5,7 +5,6 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -86,13 +85,29 @@ export default function SEO(props: SEOProps) {
           content: metaDescription,
         },
       ].concat(meta ?? [])}
-    />
+    >
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org/",
+          "@type": "Person",
+          name: "Brandon Julio Thenaro",
+          url: site.siteMetadata.siteUrl,
+          image: `${site.siteMetadata.siteUrl}${favicon.childImageSharp.fluid.srcWebp}`,
+          sameAs: [
+            "https://www.facebook.com/profile.php?id=100008724798107",
+            "https://twitter.com/brandon_julio_t",
+            "https://www.instagram.com/brandon.julio.t",
+            "https://www.linkedin.com/in/brandonjuliothenaro",
+            "https://github.com/brandon-julio-t",
+            "https://www.brandonjuliothenaro.my.id/",
+          ],
+          jobTitle: "Student",
+          worksFor: {
+            "@type": "Organization",
+            name: "BINUS University",
+          },
+        })}
+      </script>
+    </Helmet>
   )
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 }

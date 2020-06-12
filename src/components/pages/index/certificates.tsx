@@ -60,7 +60,7 @@ const certificates = [
   },
   {
     Component: loadable(() =>
-      import(`../../images/certificates/apis-and-microservices`)
+      import(`../../images/certificates/javascript-basic`)
     ),
     label: "JavaScript Basic Certificate by HackerRank",
     url: "https://bit.ly/2UpwkQ0",

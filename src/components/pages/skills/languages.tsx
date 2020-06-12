@@ -9,7 +9,7 @@ export default () => <SkillSection title="Languages" skillCategories={languages}
 const languages = [
   {
     title: "Programming",
-    items: ["C/C++", "Java", "JavaScript"],
+    items: ["C/C++", "Java", "JavaScript", "TypeScript"],
   },
   {
     title: "Spoken",
