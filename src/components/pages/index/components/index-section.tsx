@@ -1,10 +1,11 @@
 import "twin.macro"
 
-import loadable from "@loadable/component"
+interface IndexSectionProps {
+  children: React.ReactNode,
+  title: string
+}
 
-const React = loadable(() => import("react"))
-
-export default props => (
+export default (props: IndexSectionProps) => (
   <section tw="my-5">
     <h2 tw="text-center text-4xl my-4">
       {props.title}

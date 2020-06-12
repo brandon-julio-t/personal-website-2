@@ -2,11 +2,9 @@ import "twin.macro"
 
 import loadable from "@loadable/component"
 
-const React = loadable(() => import("react"))
-
 const SkillSection = loadable(() => import("./components/skill-section"))
 
-export default () => <SkillSection title="Others" skills={others} />
+export default () => <SkillSection title="Others" skillCategories={others} />
 
 const others = [
   {

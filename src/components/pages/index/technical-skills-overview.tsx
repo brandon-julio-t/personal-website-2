@@ -12,9 +12,8 @@ import {
 } from "@mdi/js"
 
 const Icon = loadable(() => import("@mdi/react"))
-const React = loadable(() => import("react"))
 
-const Button = loadable(() => import("./components/button"))
+const Button = loadable(() => import("../../common/button"))
 const Card = loadable(() => import("./components/card"))
 const H3 = loadable(() => import("./components/h3"))
 const IndexSection = loadable(() => import("./components/index-section"))

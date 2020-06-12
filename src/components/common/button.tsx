@@ -1,9 +1,6 @@
 import PropTypes from "prop-types"
-import loadable from "@loadable/component"
 import tw from "twin.macro"
 import { Link } from "gatsby"
-
-const React = loadable(() => import("react"))
 
 export default function Button(props) {
   const { href, to } = props
@@ -25,9 +22,8 @@ export default function Button(props) {
 
 const base = `
 border
-border-gray-500
 duration-300
-hover:border-black
+hover:border-gray-500
 hover:shadow-md
 px-3
 py-2
@@ -36,6 +32,7 @@ shadow
 transition
 `
 
+// @ts-ignore
 const GatsbyLink = tw(Link)`${base}`
 const RegularLink = tw.a`${base}`
 const RegularButton = tw.button`${base}`

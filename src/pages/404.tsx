@@ -3,8 +3,6 @@ import "twin.macro"
 import loadable from "@loadable/component"
 import { Link } from "gatsby"
 
-const React = loadable(() => import("react"))
-
 const Layout = loadable(() => import("../components/layout"))
 
 export default () => (

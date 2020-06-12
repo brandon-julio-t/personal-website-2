@@ -2,8 +2,6 @@ import "twin.macro"
 
 import loadable from "@loadable/component"
 
-const React = loadable(() => import("react"))
-
 const Layout = loadable(() => import("../components/layout"))
 
 export default () => (

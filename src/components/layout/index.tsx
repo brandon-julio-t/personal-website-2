@@ -1,14 +1,18 @@
 import "twin.macro"
 
-import PropTypes from "prop-types"
-import React from "react" // Don't use loadable on this one or error will happen
+import React from "react"
 import loadable from "@loadable/component"
 
 const Footer = loadable(() => import("./footer"))
 const SEO = loadable(() => import("./seo"))
 const Navbar = loadable(() => import("./navbar"))
 
-export default function Layout(props) {
+interface LayoutProps {
+  title: string
+  children: React.ReactNode
+}
+
+export default function Layout(props: LayoutProps) {
   return (
     <>
       <SEO title={props.title} />
@@ -30,8 +34,4 @@ export default function Layout(props) {
       <Footer />
     </>
   )
-}
-
-Layout.propTypes = {
-  title: PropTypes.string,
 }

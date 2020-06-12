@@ -1,10 +1,8 @@
 import "twin.macro"
 
-import loadable from "@loadable/component"
+interface CardProps {}
 
-const React = loadable(() => import("react"))
-
-export default props => (
+export default (props: CardProps) => (
   <div
     tw="border transition duration-300 shadow-md hover:shadow-lg p-5"
     {...props}

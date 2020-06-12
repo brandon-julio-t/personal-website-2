@@ -14,11 +14,13 @@ import {
 } from "@mdi/js"
 
 const Icon = loadable(() => import("@mdi/react"))
-const React = loadable(() => import("react"))
 
-const FreeCodecamp = loadable(() =>
+const FreeCodeCamp = loadable(() =>
+  // @ts-ignore
   import("../../images/free-code-camp-logo.svg")
 )
+
+// @ts-ignore
 const NetlifyLight = loadable(() => import("../../images/netlify-light.svg"))
 
 export default () => (
@@ -69,11 +71,19 @@ export default () => (
   </footer>
 )
 
+// @ts-ignore
 const ContactIcon = tw(Icon)`h-10 mx-2`
+// @ts-ignore
 const CreditIcon = tw(Icon)`h-6 ml-2 inline-block`
 const CreditParagraph = tw.p`text-right`
 
-const ExternalLink = props => (
+
+interface ExternalLink {
+  children: React.ReactNode,
+  href: string
+}
+
+const ExternalLink = (props: ExternalLink) => (
   <a rel="noopener noreferrer" target="_blank" tw="underline" {...props}>
     {props.children}
   </a>
@@ -94,7 +104,8 @@ const socials = [
     label: "freeCodecamp Profile",
     href: "https://www.freecodecamp.org/brandon-julio-thenaro",
     Component: (
-      <FreeCodecamp
+      <FreeCodeCamp
+        // @ts-ignore
         title="freeCodecamp Profile"
         tw="h-10 w-10 mx-2 inline-block"
       />

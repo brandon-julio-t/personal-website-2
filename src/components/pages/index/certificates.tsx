@@ -2,8 +2,6 @@ import "twin.macro"
 
 import loadable from "@loadable/component"
 
-const React = loadable(() => import("react"))
-
 const IndexSection = loadable(() => import("./components/index-section"))
 
 export default () => (

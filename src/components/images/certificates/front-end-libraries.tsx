@@ -2,14 +2,13 @@ import loadable from "@loadable/component"
 import { graphql, useStaticQuery } from "gatsby"
 
 const Img = loadable(() => import("gatsby-image"))
-const React = loadable(() => import("react"))
 
-export default props => {
+interface ImageProps {}
+
+export default (props: ImageProps) => {
   const data = useStaticQuery(graphql`
     query {
-      file(
-        relativePath: { eq: "JavaScript Algorithms and Data Structures.png" }
-      ) {
+      file(relativePath: { eq: "Front End Libraries.png" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp
