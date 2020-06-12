@@ -1,5 +1,6 @@
+import "twin.macro"
+
 import loadable from "@loadable/component"
-import tw from "twin.macro"
 import { Link } from "gatsby"
 import { mdiHome, mdiFileDocument, mdiTools, mdiChat } from "@mdi/js"
 
@@ -23,15 +24,12 @@ export default () => {
       {navLinks.map((navLink, idx) => (
         <Link to={navLink.link} key={idx}>
           {navLink.label ?? navLink.title}
-          <NavIcon path={navLink.icon} title={navLink.title} />
+          <Icon path={navLink.icon} title={navLink.title} tw="h-8 mx-auto" />
         </Link>
       ))}
     </nav>
   )
 }
-
-// @ts-ignore
-const NavIcon = tw(Icon)`h-8 mx-auto`
 
 const navLinks = [
   {

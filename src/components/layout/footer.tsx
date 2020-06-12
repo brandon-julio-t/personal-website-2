@@ -24,7 +24,7 @@ const FreeCodeCamp = loadable(() =>
 const NetlifyLight = loadable(() => import("../../images/netlify-light.svg"))
 
 export default () => (
-  <footer tw="grid grid-rows-2 grid-flow-col mb-16">
+  <footer tw="flex flex-col">
     <section tw="flex flex-row flex-wrap justify-center">
       {socials.map((s, idx) =>
         s.label === "Email" ? (
@@ -39,34 +39,31 @@ export default () => (
       )}
     </section>
 
-    <section tw="grid grid-cols-2 gap-4">
-      <div>
-        <CreditParagraph>
-          Built with{" "}
-          <ExternalLink href="https://www.gatsbyjs.org">Gatsby</ExternalLink>
-          <CreditIcon title={`Gatsby Logo`} path={mdiGatsby} />
-        </CreditParagraph>
+    <section tw="flex flex-col my-5">
+      <CreditParagraph>
+        Built with{" "}
+        <ExternalLink href="https://www.gatsbyjs.org">Gatsby</ExternalLink>
+        <CreditIcon title="Gatsby Logo" path={mdiGatsby} />
+      </CreditParagraph>
 
-        <CreditParagraph>
-          Designed with{" "}
-          <ExternalLink href="https://tailwindcss.com">
-            Tailwind CSS
-          </ExternalLink>
-          <CreditIcon title={`Tailwind CSS Logo`} path={mdiTailwind} />
-        </CreditParagraph>
+      <CreditParagraph>
+        Designed with{" "}
+        <ExternalLink href="https://tailwindcss.com">Tailwind CSS</ExternalLink>
+        <CreditIcon title="Tailwind CSS Logo" path={mdiTailwind} />
+      </CreditParagraph>
 
-        <CreditParagraph>
-          Powered by{" "}
-          <ExternalLink href="https://reactjs.org">React</ExternalLink>
-          <CreditIcon title={`React Logo`} path={mdiReact} />
-        </CreditParagraph>
-      </div>
+      <CreditParagraph>
+        Powered by <ExternalLink href="https://reactjs.org">React</ExternalLink>
+        <CreditIcon title="React Logo" path={mdiReact} />
+      </CreditParagraph>
 
-      <div tw="flex items-center">
-        <ExternalLink aria-label="Netlify logo" href="https://www.netlify.com">
-          <NetlifyLight />
-        </ExternalLink>
-      </div>
+      <ExternalLink
+        aria-label="Netlify logo"
+        href="https://www.netlify.com"
+        tw="flex justify-center my-5"
+      >
+        <NetlifyLight />
+      </ExternalLink>
     </section>
   </footer>
 )
@@ -75,11 +72,10 @@ export default () => (
 const ContactIcon = tw(Icon)`h-10 mx-2`
 // @ts-ignore
 const CreditIcon = tw(Icon)`h-6 ml-2 inline-block`
-const CreditParagraph = tw.p`text-right`
-
+const CreditParagraph = tw.p`text-center`
 
 interface ExternalLink {
-  children: React.ReactNode,
+  children: React.ReactNode
   href: string
 }
 

@@ -8,6 +8,7 @@ const Button = loadable(() => import("../components/common/button"))
 export default () => (
   <Layout title="Contact">
     <form
+      name="contact"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
