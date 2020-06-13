@@ -9,7 +9,7 @@
 
     Content-Security-Policy = """
       base-uri 'self';
-      connect-src 'self' api.github.com;
+      connect-src 'self' api.github.com d33wubrfki0l68.cloudfront.net;
       default-src 'self' www.google-analytics.com;
       form-action 'self';
       frame-src 'self' onedrive.live.com;
