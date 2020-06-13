@@ -34,7 +34,7 @@ export default () => (
             {s.Component}
           </a>
         ) : (
-          <Button aria-label={s.label} href={s.href} isIcon={true} key={idx}>
+          <Button ariaLabel={s.label} href={s.href} isIcon={true} key={idx}>
             {s.Component}
           </Button>
         )

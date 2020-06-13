@@ -31,6 +31,7 @@ export default (props: ButtonProps) => {
   if (isIcon && href)
     return (
       <a
+        aria-label={props.ariaLabel}
         className={className}
         href={href}
         rel="noopener noreferrer"
