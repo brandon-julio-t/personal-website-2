@@ -82,6 +82,14 @@ const certificates = [
     url: "https://bit.ly/2XX75H1",
   },
   {
+    Component: loadable(() =>
+      import(
+        `../../images/certificates/scrum-foundation-professional-certificate`
+      )
+    ),
+    label: "Scrum Foundation Professional Certificate"
+  },
+  {
     Component: loadable(() => import(`../../images/certificates/typing-speed`)),
     label: "Typing Speed Certificate by RataType",
     url: "https://bit.ly/2WH3M4U",
