@@ -15,8 +15,6 @@ interface ButtonProps {
 export default (props: ButtonProps) => {
   const { children, className, href, isIcon, to } = props
 
-  console.log(props)
-
   if (to)
     return (
       <Link
