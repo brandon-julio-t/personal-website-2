@@ -9,7 +9,9 @@ const Img = loadable(() => import("gatsby-image"))
 export default (props: ImageProps) => {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "Tokopedia START Summit.png" }) {
+      file(
+        relativePath: { eq: "Scrum Foundation Professional Certificate.png" }
+      ) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp

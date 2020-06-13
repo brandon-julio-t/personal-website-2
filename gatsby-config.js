@@ -10,9 +10,9 @@ module.exports = {
     siteUrl: `https://www.brandonjuliothenaro.my.id`,
   },
   plugins: [
-    `gatsby-plugin-emotion`,
     `gatsby-plugin-loadable-components-ssr`,
     `gatsby-plugin-offline`,
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-sharp`,

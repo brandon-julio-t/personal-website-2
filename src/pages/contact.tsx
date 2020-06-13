@@ -1,5 +1,4 @@
-import "twin.macro"
-
+import React from "react"
 import loadable from "@loadable/component"
 
 const Layout = loadable(() => import("../components/layout"))
@@ -12,7 +11,7 @@ export default () => (
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      tw="flex flex-col mx-auto max-w-lg"
+      className="flex flex-col mx-auto max-w-lg"
     >
       <label style={{ display: "none" }}>
         Don’t fill this out if you're human: <input name="bot-field" />
@@ -26,7 +25,7 @@ export default () => (
         autoFocus={true}
         name="Name"
         placeholder="Name (Optional)"
-        tw="border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4"
+        className="border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4"
         type="text"
       />
 
@@ -34,11 +33,11 @@ export default () => (
         name="Message"
         placeholder="Message (Required)"
         rows={10}
-        tw="border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4 my-5"
+        className="border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4 my-5"
         required
       />
 
-      <Button type="submit">Submit</Button>
+      <Button type="submit" isIcon={false}>Submit</Button>
     </form>
   </Layout>
 )

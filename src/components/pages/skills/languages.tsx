@@ -1,5 +1,4 @@
-import "twin.macro"
-
+import React from "react"
 import loadable from "@loadable/component"
 
 const SkillSection = loadable(() => import("./components/skill-section"))

@@ -1,5 +1,4 @@
-import "twin.macro"
-
+import React from "react"
 import loadable from "@loadable/component"
 
 const Layout = loadable(() => import("../components/layout"))
@@ -11,7 +10,7 @@ export default () => (
       scrolling="no"
       src="https://onedrive.live.com/embed?cid=D5A3B6C8950A0143&resid=D5A3B6C8950A0143%219596&authkey=AMRg4MEOP4uG04M&em=2"
       title="curriculum-vitae"
-      tw="bg-gray-300 w-full h-screen hover:shadow transition duration-300"
+      className="bg-gray-300 w-full h-screen hover:shadow transition duration-300"
     />
   </Layout>
 )

@@ -1,5 +1,3 @@
-import "twin.macro"
-
 import React from "react"
 import loadable from "@loadable/component"
 
@@ -20,15 +18,15 @@ export default function Layout(props: LayoutProps) {
       <Navbar />
 
       <header>
-        <h1 tw="font-hairline tracking-wide text-6xl text-center my-5">
+        <h1 className="font-hairline tracking-wide text-6xl text-center my-5">
           {props.title}
         </h1>
       </header>
 
-      <main tw="container mx-auto px-4">
-        <hr tw="my-4" />
+      <main className="container mx-auto px-4">
+        <hr className="my-4" />
         {props.children}
-        <hr tw="my-4" />
+        <hr className="my-4" />
       </main>
 
       <Footer />

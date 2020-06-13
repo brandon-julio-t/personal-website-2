@@ -1,7 +1,8 @@
-import tw from "twin.macro"
+import React from "react"
 import { Link } from "gatsby"
 
 interface ButtonProps {
+  ariaLabel?: string
   children: React.ReactNode
   className?: string
   href?: string
@@ -12,46 +13,51 @@ interface ButtonProps {
 }
 
 export default (props: ButtonProps) => {
-  const { children, href, isIcon, to } = props
+  const { children, className, href, isIcon, to } = props
 
-  if (to) return <GatsbyLink to={to} {...props} />
+  if (to)
+    return (
+      <Link
+        aria-label={props.ariaLabel}
+        className={`${base} ${className}`}
+        to={to}
+      >
+        {children}
+      </Link>
+    )
 
   if (isIcon && href)
     return (
-      <a href={href} rel="noopener noreferrer" target="_blank" className={props.className}>
+      <a
+        aria-label={props.ariaLabel}
+        className={className}
+        href={href}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         {children}
       </a>
     )
 
   if (href)
     return (
-      <RegularLink
+      <a
+        aria-label={props.ariaLabel}
+        className={`${base} ${className}`}
         href={href}
         rel="noopener noreferrer"
         target="_blank"
-        {...props}
-      />
+      >
+        {children}
+      </a>
     )
 
-  return <RegularButton {...props} />
+  return (
+    <button aria-label={props.ariaLabel} className={`${base} ${className}`}>
+      {children}
+    </button>
+  )
 }
 
-const base = `
-active:bg-gray-100
-active:shadow-lg
-focus:shadow-lg
-border
-duration-300
-hover:border-gray-500
-hover:shadow-md
-px-3
-py-2
-rounded
-shadow
-transition
-`
-
-// @ts-ignore: this works
-const GatsbyLink = tw(Link)`${base}`
-const RegularLink = tw.a`${base}`
-const RegularButton = tw.button`${base}`
+const base =
+  "active:bg-gray-100 active:shadow-lg focus:shadow-lg border duration-300 hover:border-gray-500 hover:shadow-md px-3 py-2 rounded shadow transition"

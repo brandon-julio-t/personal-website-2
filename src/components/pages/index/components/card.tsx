@@ -1,10 +1,14 @@
-import "twin.macro"
+import React from "react"
 
-interface CardProps {}
+interface CardProps {
+  children: React.ReactNode
+  className?: string
+}
 
 export default (props: CardProps) => (
   <div
-    tw="border transition duration-300 shadow hover:shadow-md p-5"
-    {...props}
-  />
+    className={`border transition duration-300 shadow hover:shadow-md p-5 ${props.className}`}
+  >
+    {props.children}
+  </div>
 )
