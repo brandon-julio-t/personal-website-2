@@ -14,36 +14,20 @@ interface ButtonProps {
 
 export default (props: ButtonProps) => {
   const { children, className, href, isIcon, to } = props
+  const style = isIcon ? className : `${base} ${className}`
 
   if (to)
     return (
-      <Link
-        aria-label={props.ariaLabel}
-        className={`${base} ${className}`}
-        to={to}
-      >
+      <Link aria-label={props.ariaLabel} className={style} to={to}>
         {children}
       </Link>
-    )
-
-  if (isIcon && href)
-    return (
-      <a
-        aria-label={props.ariaLabel}
-        className={className}
-        href={href}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        {children}
-      </a>
     )
 
   if (href)
     return (
       <a
         aria-label={props.ariaLabel}
-        className={`${base} ${className}`}
+        className={style}
         href={href}
         rel="noopener noreferrer"
         target="_blank"
@@ -53,7 +37,10 @@ export default (props: ButtonProps) => {
     )
 
   return (
-    <button aria-label={props.ariaLabel} className={`${base} ${className}`}>
+    <button
+      aria-label={props.ariaLabel}
+      className={style}
+    >
       {children}
     </button>
   )
