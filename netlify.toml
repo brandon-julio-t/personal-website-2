@@ -10,7 +10,7 @@
     Content-Security-Policy = """
       base-uri 'self';
       connect-src 'self' api.github.com;
-      default-src 'self' google-analytics.com;
+      default-src 'self' www.google-analytics.com;
       form-action 'self';
       frame-src 'self' onedrive.live.com;
       img-src 'self' data: www.google-analytics.com;
