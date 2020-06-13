@@ -10,7 +10,7 @@ export default () => (
     <div tw="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
       {certificates.map((cert, idx) => (
         <Button aria-label={cert.label} href={cert.url} isIcon={true} key={idx}>
-          <cert.Component tw="transition duration-300 shadow-md hover:shadow-xl" />
+          <cert.Component tw="transition duration-300 shadow hover:shadow-md" />
         </Button>
       ))}
     </div>
@@ -71,6 +71,16 @@ const certificates = [
     ),
     label: "Tokopedia START Summit Certificate",
     url: "https://bit.ly/2xPxg83",
+  },
+  {
+    Component: loadable(() =>
+      import(
+        `../../images/certificates/cyber-security-is-a-career-or-professional-services`
+      )
+    ),
+    label:
+      "Cyber Security is a Career or Professional Services Seminar Participate Certificate",
+    url: "https://bit.ly/2XX75H1",
   },
   {
     Component: loadable(() => import(`../../images/certificates/typing-speed`)),

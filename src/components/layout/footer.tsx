@@ -43,27 +43,45 @@ export default () => (
 
     <section tw="flex flex-col my-5">
       <CenteredParagraph>
-        Built with{" "}
-        <Button href="https://www.gatsbyjs.org" isIcon={true}>
-          Gatsby
-        </Button>
-        <InlineIcon title="Gatsby Logo" path={mdiGatsby} />
+        <span>
+          Built with{" "}
+          <LinkUnderline href="https://www.gatsbyjs.org" isIcon={true}>
+            Gatsby
+          </LinkUnderline>
+        </span>
+        <InlineIcon
+          path={mdiGatsby}
+          title="Gatsby Logo"
+          tw="fill-current text-purple-700"
+        />
       </CenteredParagraph>
 
       <CenteredParagraph>
-        Designed with{" "}
-        <Button href="https://tailwindcss.com" isIcon={true}>
-          Tailwind CSS
-        </Button>
-        <InlineIcon title="Tailwind CSS Logo" path={mdiTailwind} />
+        <span>
+          Designed with{" "}
+          <LinkUnderline href="https://tailwindcss.com" isIcon={true}>
+            Tailwind CSS
+          </LinkUnderline>
+        </span>
+        <InlineIcon
+          path={mdiTailwind}
+          title="Tailwind CSS Logo"
+          tw="fill-current text-teal-600"
+        />
       </CenteredParagraph>
 
       <CenteredParagraph>
-        Powered by{" "}
-        <Button href="https://reactjs.org" isIcon={true}>
-          React
-        </Button>
-        <InlineIcon title="React Logo" path={mdiReact} />
+        <span>
+          Powered by{" "}
+          <LinkUnderline href="https://reactjs.org" isIcon={true}>
+            React
+          </LinkUnderline>
+        </span>
+        <InlineIcon
+          path={mdiReact}
+          title="React Logo"
+          tw="fill-current text-blue-600"
+        />
       </CenteredParagraph>
 
       <Button
@@ -78,22 +96,24 @@ export default () => (
   </footer>
 )
 
-const CenteredParagraph = tw.p`text-center`
+const CenteredParagraph = tw.p`flex flex-row justify-center items-center`
 // @ts-ignore: this works
 const ContactIcon = tw(Icon)`h-10 mx-2`
 // @ts-ignore: this works
-const InlineIcon = tw(Icon)`h-6 ml-2 inline-block`
+const InlineIcon = tw(Icon)`h-6 ml-1 inline-block`
+// @ts-ignore: this works
+const LinkUnderline = tw(Button)`underline align-top`
 
 const socials = [
   {
     label: "Email",
     href: "mailto:brandon.julio.t@icloud.com",
-    Component: <ContactIcon title="Email" path={mdiEmail} />,
+    Component: <ContactIcon path={mdiEmail} title="Email" />,
   },
   {
     label: "Facebook Profile",
     href: "https://www.facebook.com/profile.php?id=100008724798107",
-    Component: <ContactIcon title="Facebook Profile" path={mdiFacebook} />,
+    Component: <ContactIcon path={mdiFacebook} title="Facebook Profile" />,
   },
   {
     label: "freeCodecamp Profile",
@@ -109,21 +129,21 @@ const socials = [
   {
     label: "GitHub Profile",
     href: "https://github.com/brandon-julio-t",
-    Component: <ContactIcon title="GitHub Profile" path={mdiGithub} />,
+    Component: <ContactIcon path={mdiGithub} title="GitHub Profile" />,
   },
   {
     label: "Instagram Profile",
     href: "https://www.instagram.com/brandon.julio.t",
-    Component: <ContactIcon title="Instagram Profile" path={mdiInstagram} />,
+    Component: <ContactIcon path={mdiInstagram} title="Instagram Profile" />,
   },
   {
     label: "LinkedIn Profile",
     href: "https://www.linkedin.com/in/brandonjuliothenaro",
-    Component: <ContactIcon title="LinkedIn Profile" path={mdiLinkedin} />,
+    Component: <ContactIcon path={mdiLinkedin} title="LinkedIn Profile" />,
   },
   {
     label: "Twitter Profile",
     href: "https://twitter.com/brandon_julio_t",
-    Component: <ContactIcon title="Twitter Profile" path={mdiTwitter} />,
+    Component: <ContactIcon path={mdiTwitter} title="Twitter Profile" />,
   },
 ]
