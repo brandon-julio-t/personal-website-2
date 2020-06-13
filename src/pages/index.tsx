@@ -1,6 +1,5 @@
-import "twin.macro"
-
 import loadable from "@loadable/component"
+import React from "react"
 
 const Layout = loadable(() => import("../components/layout"))
 
@@ -16,8 +15,8 @@ const TechnicalSkillsOverview = loadable(() =>
 
 export default () => (
   <Layout title="Home">
-    <section tw="text-center font-light">
-      <p tw="grid grid-cols-2 divide-x max-w-xs mx-auto">
+    <section className="text-center font-light">
+      <p className="grid grid-cols-2 divide-x max-w-xs mx-auto">
         <span>Lifelong Learner</span>
         <span>Web Developer</span>
       </p>

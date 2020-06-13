@@ -1,5 +1,4 @@
-import "twin.macro"
-
+import React from "react"
 import loadable from "@loadable/component"
 import { Link } from "gatsby"
 import { mdiHome, mdiFileDocument, mdiTools, mdiChat } from "@mdi/js"
@@ -8,23 +7,15 @@ const Icon = loadable(() => import("@mdi/react"))
 
 export default () => {
   return (
-    <nav
-      tw="
-      container
-      divide-x
-      grid
-      grid-cols-4
-      justify-between
-      mt-5
-      mx-auto
-      text-center
-      tracking-widest
-      "
-    >
+    <nav className="container divide-x grid grid-cols-4 justify-between mt-5 mx-auto text-center tracking-widest">
       {navLinks.map((navLink, idx) => (
         <Link to={navLink.link} key={idx}>
           {navLink.label ?? navLink.title}
-          <Icon path={navLink.icon} title={navLink.title} tw="h-8 mx-auto" />
+          <Icon
+            className="h-8 mx-auto"
+            path={navLink.icon}
+            title={navLink.title}
+          />
         </Link>
       ))}
     </nav>

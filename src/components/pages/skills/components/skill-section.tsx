@@ -1,6 +1,4 @@
-import "twin.macro"
-
-import { memo } from "react"
+import React, { memo } from "react"
 
 interface SkillItems {
   title: string
@@ -14,16 +12,16 @@ interface SkillSectionProps {
 
 export default memo((props: SkillSectionProps) => (
   <section>
-    <h2 tw="text-3xl">{props.title}</h2>
+    <h2 className="text-3xl">{props.title}</h2>
 
-    <ul tw="ml-4">
+    <ul className="ml-4">
       {props.skillCategories.map((category, idx) => (
-        <li key={idx} tw="my-2">
-          <h3 tw="font-medium text-xl">{category.title}</h3>
+        <li key={idx} className="my-2">
+          <h3 className="font-medium text-xl">{category.title}</h3>
 
-          <hr tw="my-2" />
+          <hr className="my-2" />
 
-          <ul tw="ml-6 list-disc">
+          <ul className="ml-6 list-disc">
             {category.items.sort().map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}

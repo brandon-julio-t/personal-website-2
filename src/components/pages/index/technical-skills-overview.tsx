@@ -1,5 +1,4 @@
-import "twin.macro"
-
+import React from "react"
 import loadable from "@loadable/component"
 
 import {
@@ -20,18 +19,18 @@ const IndexSection = loadable(() => import("./components/index-section"))
 
 export default () => (
   <IndexSection title="Technical Skills Overview">
-    <div tw="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {skills.map((skill, idx) => (
         <Card key={idx}>
           <H3>{skill.label}</H3>
 
           <ul>
             {skill.items.map((item, idx) => (
-              <li key={idx} tw="flex flex-row items-center my-4">
+              <li key={idx} className="flex flex-row items-center my-4">
                 <Icon
                   path={item.icon}
                   title={`${item.label} Logo`}
-                  tw="inline-block h-6 mr-4"
+                  className="inline-block h-6 mr-4"
                 />
                 {item.label}
               </li>
@@ -41,7 +40,11 @@ export default () => (
       ))}
     </div>
 
-    <Button to="/skills" tw="flex flex-row justify-center my-5">
+    <Button
+      className="flex flex-row justify-center my-5"
+      isIcon={false}
+      to="/skills"
+    >
       View More
       <span aria-label="Eyes emoji" role="img">
         👀

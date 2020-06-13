@@ -1,5 +1,4 @@
-import "twin.macro"
-
+import React from "react"
 import loadable from "@loadable/component"
 
 const Card = loadable(() => import("./card"))
@@ -9,8 +8,8 @@ interface LimitExceededProps {
 }
 
 export default (props: LimitExceededProps) => (
-  <Card tw="max-w-xs mx-auto">
-    <p tw="text-center">
+  <Card className="max-w-xs mx-auto">
+    <p className="text-center">
       {props.message}
       <span role="img" aria-label="sad face">
         😥

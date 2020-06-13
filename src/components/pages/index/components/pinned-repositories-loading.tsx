@@ -1,7 +1,7 @@
-import  "twin.macro"
+import React from "react"
 
 export default () => (
-  <p tw="text-center">
+  <p className="text-center">
     The robots are busy loading.
     <br />
     Please wait warmly...

@@ -1,14 +1,6 @@
-import "twin.macro"
-
 import loadable from "@loadable/component"
-import { mdiGithub, mdiLaunch } from "@mdi/js"
-import { memo, useEffect, useState } from "react"
+import React, { memo, useEffect, useState } from "react"
 
-const Icon = loadable(() => import("@mdi/react"))
-
-const Button = loadable(() => import("../../common/button"))
-const Card = loadable(() => import("./components/card"))
-const H3 = loadable(() => import("./components/h3"))
 const IndexSection = loadable(() => import("./components/index-section"))
 const LimitExceeded = loadable(() => import("./components/limit-exceeded"))
 const PinnedRepositoriesLoading = loadable(() =>
@@ -45,7 +37,7 @@ export default memo(() => {
 
   return (
     <IndexSection title="Pinned GitHub Projects">
-      <small tw="text-center font-light mb-4 block">
+      <small className="text-center font-light mb-4 block">
         Query count remaining: {rateLimitData?.remaining ?? "Loading..."}
         <br />
         Will reset at: {prettyDateTime(rateLimitData?.resetAt) ?? "Loading..."}

@@ -1,5 +1,4 @@
-import "twin.macro"
-
+import React from "react"
 import loadable from "@loadable/component"
 
 const IndexSection = loadable(() => import("./components/index-section"))
@@ -7,10 +6,10 @@ const Button = loadable(() => import("../../common/button"))
 
 export default () => (
   <IndexSection title="Certificates">
-    <div tw="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
       {certificates.map((cert, idx) => (
         <Button aria-label={cert.label} href={cert.url} isIcon={true} key={idx}>
-          <cert.Component tw="transition duration-300 shadow hover:shadow-md" />
+          <cert.Component className="transition duration-300 shadow hover:shadow-md" />
         </Button>
       ))}
     </div>

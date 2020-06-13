@@ -1,5 +1,4 @@
-import "twin.macro"
-
+import React from "react"
 import loadable from "@loadable/component"
 import { mdiGithub, mdiLaunch } from "@mdi/js"
 
@@ -31,20 +30,20 @@ interface PinnedRepositoriesCardsProps {
 }
 
 export default (props: PinnedRepositoriesCardsProps) => (
-  <div tw="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {props.pinnedRepos.map((repo: PinnedRepository, repoIdx: number) => (
-      <div tw="flex flex-col" key={repoIdx}>
-        <Card tw="flex-shrink">
-          <H3 tw="capitalize">{repo.name.replace(/-/g, " ")}</H3>
+      <div className="flex flex-col" key={repoIdx}>
+        <Card className="flex-shrink">
+          <H3 className="capitalize">{repo.name.replace(/-/g, " ")}</H3>
 
-          <p tw="font-light">Created at: {prettyDate(repo.createdAt)}</p>
+          <p className="font-light">Created at: {prettyDate(repo.createdAt)}</p>
 
-          <p tw="my-4">{repo.description}</p>
+          <p className="my-4">{repo.description}</p>
 
-          <div tw="flex flex-row flex-wrap my-4">
+          <div className="flex flex-row flex-wrap my-4">
             {repo.languages.nodes.map((lang: Language, langIdx: number) => (
               <span
-                tw="rounded-full bg-gray-300 flex-none px-3 py-1 mr-2 mb-2"
+                className="rounded-full bg-gray-300 flex-none px-3 py-1 mr-2 mb-2"
                 key={langIdx}
               >
                 {lang.name}
@@ -52,19 +51,23 @@ export default (props: PinnedRepositoriesCardsProps) => (
             ))}
           </div>
 
-          <div tw="flex flex-row justify-between items-center">
+          <div className="flex flex-row justify-between items-center">
             <Button
               href={repo.homepageUrl}
               isIcon={false}
-              tw="flex flex-row items-center"
+              className="flex flex-row items-center"
             >
-              <span tw="mr-2">View Live</span>
+              <span className="mr-2">View Live</span>
 
-              <Icon path={mdiLaunch} title="View Live" tw="h-6 inline-block" />
+              <Icon
+                path={mdiLaunch}
+                title="View Live"
+                className="h-6 inline-block"
+              />
             </Button>
 
-            <Button aria-label="View on GitHub" isIcon={true} href={repo.url}>
-              <Icon path={mdiGithub} title="View on GitHub" tw="h-10" />
+            <Button ariaLabel="View on GitHub" isIcon={true} href={repo.url}>
+              <Icon path={mdiGithub} title="View on GitHub" className="h-10" />
             </Button>
           </div>
         </Card>
