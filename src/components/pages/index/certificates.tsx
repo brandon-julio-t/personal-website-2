@@ -8,8 +8,13 @@ export default () => (
   <IndexSection title="Certificates">
     <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
       {certificates.map((cert, idx) => (
-        <Button ariaLabel={cert.label} href={cert.url} isIcon={true} key={idx}>
-          <cert.Component className="transition duration-300 shadow hover:shadow-md" />
+        <Button
+          ariaLabel={cert.label}
+          href={cert.url}
+          isIcon={true}
+          key={idx}
+        >
+          <cert.Component className="transition duration-300 shadow hover:shadow-md transform hover:scale-110" />
         </Button>
       ))}
     </div>
@@ -87,7 +92,7 @@ const certificates = [
         `../../images/certificates/scrum-foundation-professional-certificate`
       )
     ),
-    label: "Scrum Foundation Professional Certificate"
+    label: "Scrum Foundation Professional Certificate",
   },
   {
     Component: loadable(() => import(`../../images/certificates/typing-speed`)),
