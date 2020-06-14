@@ -1,8 +1,9 @@
 import loadable from "@loadable/component"
 import React, { memo, useEffect, useState } from "react"
+import axios from "axios"
 
 const IndexSection = loadable(() => import("./components/index-section"))
-const LimitExceeded = loadable(() => import("./components/limit-exceeded"))
+const APIError = loadable(() => import("./components/api-error"))
 const PinnedRepositoriesLoading = loadable(() =>
   import("./components/pinned-repositories-loading")
 )
@@ -17,19 +18,16 @@ export default memo(() => {
 
   useEffect(() => {
     async function fetchPinnedRepos() {
-      const res = await fetch("https://api.github.com/graphql", {
-        headers: {
-          Authorization: `bearer ${process.env.GATSBY_GITHUB_GRAPHQL_API_TOKEN}`,
-        },
-        method: "POST",
-        body: JSON.stringify({ query: gitHubGraphql }),
-      })
+      try {
+        const { data } = await axios.get(
+          "/.netlify/functions/pinned-repositories"
+        )
 
-      const json = await res.json()
-
-      setErrorMessage(json?.errors?.[0]?.message)
-      setPinnedRepos(json?.data?.viewer?.pinnedItems?.nodes)
-      setRateLimitData(json?.data?.rateLimit)
+        setPinnedRepos(data?.viewer?.pinnedItems?.nodes)
+        setRateLimitData(data?.rateLimit)
+      } catch (e) {
+        setErrorMessage(e.toString())
+      }
     }
 
     fetchPinnedRepos()
@@ -44,7 +42,7 @@ export default memo(() => {
       </small>
 
       {errorMessage && !pinnedRepos ? (
-        <LimitExceeded message={errorMessage} />
+        <APIError message={errorMessage} />
       ) : !pinnedRepos || pinnedRepos.length === 0 ? (
         <PinnedRepositoriesLoading />
       ) : (

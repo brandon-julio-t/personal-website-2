@@ -46,3 +46,6 @@
       wake-lock 'none';
       xr-spatial-tracking 'none'
     """
+
+[build]
+  functions = "functions"

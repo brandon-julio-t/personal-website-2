@@ -9,6 +9,7 @@
     "@mdi/react": "^1.4.0",
     "@types/loadable__component": "^5.10.0",
     "@types/react-helmet": "^6.0.0",
+    "axios": "^0.19.2",
     "babel-preset-gatsby": "^0.4.9",
     "dotenv": "^8.2.0",
     "gatsby": "^2.22.15",
