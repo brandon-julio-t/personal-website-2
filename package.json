@@ -33,12 +33,9 @@
     "react-helmet": "^6.0.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-export-default-from": "^7.10.1",
-    "@babel/plugin-proposal-optional-chaining": "^7.10.1",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.10",
     "prettier": "2.0.5",
-    "tailwindcss": "^1.4.6",
-    "typescript-plugin-tw-template": "^2.0.1"
+    "tailwindcss": "^1.4.6"
   },
   "keywords": [
     "gatsby"
@@ -46,9 +43,8 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "netlify dev",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
