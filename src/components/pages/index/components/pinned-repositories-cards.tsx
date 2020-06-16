@@ -8,30 +8,30 @@ const Button = loadable(() => import("../../../common/button"))
 const Card = loadable(() => import("./card"))
 const H3 = loadable(() => import("./h3"))
 
-interface Language {
-  name: string
+interface PinnedRepositoriesCardsProps {
+  nodes: PinnableItem[]
 }
 
-interface Languages {
-  nodes: Language[]
-}
-
-interface PinnedRepository {
+interface PinnableItem {
   createdAt: string
   description: string
   homepageUrl: string
-  languages: Languages
+  languages: LanguageConnection
   name: string
   url: string
 }
 
-interface PinnedRepositoriesCardsProps {
-  pinnedRepos: PinnedRepository[]
+interface LanguageConnection {
+  nodes: Language[]
+}
+
+interface Language {
+  name: string
 }
 
 export default (props: PinnedRepositoriesCardsProps) => (
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {props.pinnedRepos.map((repo: PinnedRepository, repoIdx: number) => (
+    {props.nodes.map((repo: PinnableItem, repoIdx: number) => (
       <div className="flex flex-col" key={repoIdx}>
         <Card className="flex-shrink">
           <H3 className="capitalize">{repo.name.replace(/-/g, " ")}</H3>
