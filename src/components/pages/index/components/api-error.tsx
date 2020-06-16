@@ -19,7 +19,7 @@ export default (props: APIErrorProps) => (
 
     <div className="flex flex-row justify-center mt-4">
       <Button href="mailto:brandon.julio.t@icloud.com" isIcon={false}>
-        Contact web admin
+        Report
       </Button>
     </div>
   </Card>

@@ -1,5 +1,5 @@
-import loadable from "@loadable/component"
 import React from "react"
+import loadable from "@loadable/component"
 
 const Layout = loadable(() => import("../components/layout"))
 
