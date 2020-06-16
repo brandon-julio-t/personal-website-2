@@ -1,7 +1,5 @@
-import ApolloClient from "apollo-boost"
 import React from "react"
 import loadable from "@loadable/component"
-import { ApolloProvider } from "@apollo/react-hooks"
 
 const Layout = loadable(() => import("../components/layout"))
 
@@ -15,10 +13,6 @@ const TechnicalSkillsOverview = loadable(() =>
   import("../components/pages/index/technical-skills-overview")
 )
 
-const client = new ApolloClient({
-  uri: "/.netlify/functions/graphql",
-})
-
 export default () => (
   <Layout title="Home">
     <section className="text-center font-light">
@@ -31,11 +25,7 @@ export default () => (
     </section>
 
     <TechnicalSkillsOverview />
-
-    <ApolloProvider client={client}>
-      <PinnedGithubProjects />
-    </ApolloProvider>
-
+    <PinnedGithubProjects />
     <Certificates />
   </Layout>
 )
