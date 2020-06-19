@@ -86,7 +86,7 @@ export default () => {
 
         <p className="flex flex-row justify-center items-center">
           <span>
-            Powered by{" "}
+            Powered with{" "}
             <Button
               className="underline"
               href="https://reactjs.org"
@@ -100,6 +100,17 @@ export default () => {
             title="React Logo"
             className="fill-current text-blue-600 h-6 ml-1 inline-block"
           />
+        </p>
+
+        <p className="text-center">
+          Background by{" "}
+          <Button
+            className="underline"
+            href="https://marcbruederlin.github.io/particles.js/"
+            isIcon={true}
+          >
+            particles.js
+          </Button>
         </p>
 
         <Button

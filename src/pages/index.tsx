@@ -14,7 +14,11 @@ const TechnicalSkillsOverview = loadable(() =>
 )
 
 export default () => {
-  useContext(PageContext).setTitle("Home")
+  const { setTitle } = useContext(PageContext)
+
+  useEffect(() => {
+    setTitle("Home")
+  }, [])
 
   return (
     <>

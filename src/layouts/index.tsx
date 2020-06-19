@@ -1,5 +1,5 @@
 import ApolloClient from "apollo-boost"
-import React from "react"
+import React, { useEffect, useContext } from "react"
 import fetch from "isomorphic-fetch"
 import loadable from "@loadable/component"
 import { ApolloProvider } from "@apollo/react-hooks"
@@ -16,23 +16,33 @@ interface LayoutProps {
   children: React.ReactNode
 }
 
-export default (props: LayoutProps) => (
-  <ApolloProvider client={client}>
-    <ThemeContextProvider>
-      <PageContextProvider>
-        <SEO />
-        <Navbar />
-        <Header />
-        <main className="container mx-auto px-4">
-          <hr className="my-4" />
-          {props.children}
-          <hr className="my-4" />
-        </main>
-        <Footer />
-      </PageContextProvider>
-    </ThemeContextProvider>
-  </ApolloProvider>
-)
+export default (props: LayoutProps) => {
+  return (
+    <ApolloProvider client={client}>
+      <ThemeContextProvider>
+        <PageContextProvider>
+          <SEO />
+          <Navbar />
+          <Header />
+          <main className="container mx-auto px-4">
+            <hr className="my-4" />
+            {props.children}
+            <hr className="my-4" />
+          </main>
+          <Footer />
+
+          <div id="particlesjs-container">
+            <canvas
+              id="particlesjs"
+              className="h-screen w-screen fixed top-0"
+              style={{ zIndex: -1 }}
+            />
+          </div>
+        </PageContextProvider>
+      </ThemeContextProvider>
+    </ApolloProvider>
+  )
+}
 
 const client = new ApolloClient({
   uri: "/.netlify/functions/graphql",

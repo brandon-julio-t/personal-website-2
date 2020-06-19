@@ -7,9 +7,13 @@ import ThemeContext from "../context/theme"
 const Button = loadable(() => import("../components/common/button"))
 
 export default () => {
-  useContext(PageContext).setTitle("Contact")
+  const { setTitle } = useContext(PageContext)
   const { mode } = useContext(ThemeContext)
   const isLight = mode === "light"
+
+  useEffect(() => {
+    setTitle("Contact")
+  }, [])
 
   return (
     <form
