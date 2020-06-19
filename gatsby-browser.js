@@ -7,5 +7,3 @@
 // You can delete this file if you're not using it
 
 import "./src/styles/index.css"
-
-export { wrapRootElement } from "./src/misc/apollo-wrapped-root-element"

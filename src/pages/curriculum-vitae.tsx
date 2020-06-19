@@ -3,11 +3,7 @@ import React, { useContext, useEffect } from "react"
 import PageContext from "../context/page"
 
 export default () => {
-  const { setTitle } = useContext(PageContext)
-
-  useEffect(() => {
-    setTitle("Curriculum Vitae")
-  }, [])
+  useContext(PageContext).setTitle("Curriculum Vitae")
 
   return (
     <iframe

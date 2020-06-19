@@ -1,11 +1,14 @@
 import React, { createContext, useState } from "react"
 
-const defaultValue = { title: "Home", setTitle: (title: string) => null }
+interface PageContextProviderProps {
+  children: React.ReactNode
+}
 
+const defaultValue = { title: null, setTitle: (title: string) => null }
 const PageContext = createContext(defaultValue)
 
-const PageContextProvider = props => {
-  const [pageTitle, setPageTitle] = useState("Home")
+const PageContextProvider = (props: PageContextProviderProps) => {
+  const [pageTitle, setPageTitle] = useState(null)
 
   return (
     <PageContext.Provider

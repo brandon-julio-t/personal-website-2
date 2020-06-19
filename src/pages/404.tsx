@@ -4,11 +4,7 @@ import { Link } from "gatsby"
 import PageContext from "../context/page"
 
 export default () => {
-  const { setTitle } = useContext(PageContext)
-
-  useEffect(() => {
-    setTitle("404 Not Found")
-  }, [])
+   useContext(PageContext).setTitle("404 Not Found")
 
   return (
     <div className="flex flex-row justify-center">

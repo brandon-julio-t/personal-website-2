@@ -2,15 +2,14 @@ import React, { useContext, useEffect } from "react"
 import loadable from "@loadable/component"
 
 import PageContext from "../context/page"
+import ThemeContext from "../context/theme"
 
 const Button = loadable(() => import("../components/common/button"))
 
 export default () => {
-  const { setTitle } = useContext(PageContext)
-
-  useEffect(() => {
-    setTitle("Contact")
-  }, [])
+  useContext(PageContext).setTitle("Contact")
+  const { mode } = useContext(ThemeContext)
+  const isLight = mode === "light"
 
   return (
     <form
@@ -32,7 +31,9 @@ export default () => {
         autoFocus={true}
         name="Name"
         placeholder="Name (Optional)"
-        className="border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4"
+        className={`border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4 ${
+          isLight ? "bg-white" : "bg-black"
+        }`}
         type="text"
       />
 
@@ -40,7 +41,9 @@ export default () => {
         name="Message"
         placeholder="Message (Required)"
         rows={10}
-        className="border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4 my-5"
+        className={`border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4 my-5 ${
+          isLight ? "bg-white" : "bg-black"
+        }`}
         required
       />
 

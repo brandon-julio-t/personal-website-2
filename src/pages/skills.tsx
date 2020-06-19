@@ -11,11 +11,7 @@ const Languages = loadable(() => import("../components/pages/skills/languages"))
 const Others = loadable(() => import("../components/pages/skills/others"))
 
 export default () => {
-  const { setTitle } = useContext(PageContext)
-
-  useEffect(() => {
-    setTitle("Technical Skills")
-  }, [])
+  useContext(PageContext).setTitle("Technical Skills")
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

@@ -1,27 +1,28 @@
 import React, { createContext, useState, useEffect } from "react"
 
-const defaultValue = { mode: "light", toggleTheme: () => null }
+interface ThemeContextProviderProps {
+  children: React.ReactNode
+}
 
+const defaultValue = { mode: null, toggleTheme: () => null }
 const ThemeContext = createContext(defaultValue)
 
-const ThemeContextProvider = props => {
+const ThemeContextProvider = (props: ThemeContextProviderProps) => {
   const [theme, setTheme] = useState(null)
 
   useEffect(() => {
-    if (typeof window !== `undefined`) {
-      const savedTheme = localStorage.getItem("theme")
-      const noThemeIsSaved = !savedTheme
+    const savedTheme = localStorage.getItem("theme")
+    const noThemeIsSaved = !savedTheme
 
-      if (noThemeIsSaved) {
-        const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches
-        const themeByPreference = prefersDark ? "dark" : "light"
+    if (noThemeIsSaved) {
+      const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches
+      const themeByPreference = prefersDark ? "dark" : "light"
 
-        setTheme(themeByPreference)
-        localStorage.setItem("theme", themeByPreference)
-      } else {
-        setTheme(savedTheme)
-        localStorage.setItem("theme", savedTheme)
-      }
+      setTheme(themeByPreference)
+      localStorage.setItem("theme", themeByPreference)
+    } else {
+      setTheme(savedTheme)
+      localStorage.setItem("theme", savedTheme)
     }
   }, [])
 
