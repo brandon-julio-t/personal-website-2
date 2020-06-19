@@ -4,11 +4,11 @@ interface PageContextProviderProps {
   children: React.ReactNode
 }
 
-const defaultValue = { title: null, setTitle: (title: string) => null }
+const defaultValue = { title: "Home", setTitle: (title: string) => null }
 const PageContext = createContext(defaultValue)
 
 const PageContextProvider = (props: PageContextProviderProps) => {
-  const [pageTitle, setPageTitle] = useState(null)
+  const [pageTitle, setPageTitle] = useState("Home")
 
   return (
     <PageContext.Provider
