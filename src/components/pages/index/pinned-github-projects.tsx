@@ -3,9 +3,8 @@ import loadable from "@loadable/component"
 import { gql, DocumentNode } from "apollo-boost"
 import { useQuery } from "@apollo/react-hooks"
 
-const Card = loadable(() => import("./components/card"))
-const IndexSection = loadable(() => import("./components/index-section"))
 const APIError = loadable(() => import("./components/api-error"))
+const IndexSection = loadable(() => import("./components/index-section"))
 const PinnedRepositoriesCards = loadable(() =>
   import("./components/pinned-repositories-cards")
 )
@@ -27,7 +26,8 @@ export default memo(() => {
           <small className="text-center font-light mb-4 block">
             Query count remaining: {data?.rateLimit?.remaining ?? "loading..."}
             <br />
-            Will reset at: {prettyDateTime(data?.rateLimit?.resetAt) ?? "loading..."}
+            Will reset at:{" "}
+            {prettyDateTime(data?.rateLimit?.resetAt) ?? "loading..."}
           </small>
 
           <PinnedRepositoriesCards

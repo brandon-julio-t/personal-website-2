@@ -9,6 +9,7 @@ module.exports = {
     author: `@brandon_julio_t`,
     siteUrl: `https://www.brandonjuliothenaro.my.id`,
   },
+
   plugins: [
     `gatsby-plugin-layout`,
     `gatsby-plugin-loadable-components-ssr`,
@@ -17,7 +18,7 @@ module.exports = {
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-webpack-bundle-analyser-v2`,
+    // `gatsby-plugin-webpack-bundle-analyser-v2`,
     `gatsby-transformer-sharp`,
 
     {
@@ -37,7 +38,7 @@ module.exports = {
         background_color: `#FFFFFF`,
         theme_color: `#FFFFFF`,
         display: `minimal-ui`,
-        icon: `src/images/icon.jpg`, // This path is relative to the root of the site.
+        icon: `src/images/icon.jpg`,
         cache_busting_mode: "none",
       },
     },

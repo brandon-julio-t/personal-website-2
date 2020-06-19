@@ -9,6 +9,9 @@ const Icon = loadable(() => import("@mdi/react"))
 const Button = loadable(() => import("../../../common/button"))
 const Card = loadable(() => import("./card"))
 const H3 = loadable(() => import("./h3"))
+const PinnedRepositoriesCardsMock = loadable(() =>
+  import("./pinned-repositories-cards-mock")
+)
 
 interface PinnedRepositoriesCardsProps {
   nodes: PinnableItem[]
@@ -35,14 +38,7 @@ interface Language {
 export default (props: PinnedRepositoriesCardsProps) => (
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {props.mock ? (
-      <>
-        <Card className="bg-gray-300 h-64" />
-        <Card className="bg-gray-300 h-64" />
-        <Card className="bg-gray-300 h-64" />
-        <Card className="bg-gray-300 h-64" />
-        <Card className="bg-gray-300 h-64" />
-        <Card className="bg-gray-300 h-64" />
-      </>
+      <PinnedRepositoriesCardsMock />
     ) : (
       props.nodes.map((repo: PinnableItem, repoIdx: number) => (
         <div className="flex flex-col" key={repoIdx}>

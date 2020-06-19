@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import loadable from "@loadable/component"
 
 import PageContext from "../context/page"
@@ -14,7 +14,11 @@ const TechnicalSkillsOverview = loadable(() =>
 )
 
 export default () => {
-  useContext(PageContext).setTitle("Home")
+  const { setTitle } = useContext(PageContext)
+
+  useEffect(() => {
+    setTitle("Home")
+  }, [])
 
   return (
     <>

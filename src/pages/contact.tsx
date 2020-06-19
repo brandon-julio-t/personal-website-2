@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import loadable from "@loadable/component"
 
 import PageContext from "../context/page"
@@ -6,7 +6,11 @@ import PageContext from "../context/page"
 const Button = loadable(() => import("../components/common/button"))
 
 export default () => {
-  useContext(PageContext).setTitle("Contact")
+  const { setTitle } = useContext(PageContext)
+
+  useEffect(() => {
+    setTitle("Contact")
+  }, [])
 
   return (
     <form

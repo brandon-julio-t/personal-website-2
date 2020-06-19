@@ -18,7 +18,7 @@ interface SEOProps {
   meta?: object[] | any[]
 }
 
-export default function SEO(props: SEOProps) {
+export default (props: SEOProps) => {
   const { description, lang, meta } = props
   const { site, favicon } = useStaticQuery(
     graphql`
