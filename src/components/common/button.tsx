@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 
 interface ButtonProps {
@@ -13,7 +13,23 @@ interface ButtonProps {
 }
 
 export default (props: ButtonProps) => {
-  const { children, className, href, isIcon, to } = props
+  const base = `
+    active:bg-gray-100
+    active:shadow-lg
+    border
+    border-gray-500
+    duration-300
+    focus:shadow-lg
+    hover:border-current
+    hover:shadow-md
+    px-3
+    py-2
+    rounded
+    shadow
+    transition
+  `
+
+  const { children, className, href, isIcon, onClick, to, type } = props
   const style = isIcon ? className : `${base} ${className}`
 
   if (to)
@@ -40,11 +56,10 @@ export default (props: ButtonProps) => {
     <button
       aria-label={props.ariaLabel}
       className={style}
+      onClick={onClick}
+      type={type}
     >
       {children}
     </button>
   )
 }
-
-const base =
-  "active:bg-gray-100 active:shadow-lg focus:shadow-lg border duration-300 hover:border-gray-500 hover:shadow-md px-3 py-2 rounded shadow transition"

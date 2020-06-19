@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import loadable from "@loadable/component"
 
 import {
@@ -13,17 +13,23 @@ import {
   mdiTwitter,
 } from "@mdi/js"
 
+import ThemeProvider from "../context/theme"
+
 const Icon = loadable(() => import("@mdi/react"))
 
-const Button = loadable(() => import("../common/button"))
-
+const Button = loadable(() => import("../components/common/button"))
 const FreeCodeCamp = loadable(() =>
   // @ts-ignore: this works
-  import("../../images/free-code-camp-logo.svg")
+  import("../images/free-code-camp-logo.svg")
 )
 
-// @ts-ignore: this works
-const NetlifyLight = loadable(() => import("../../images/netlify-light.svg"))
+interface NetlifyProps {
+  theme: string
+}
+
+const Netlify = loadable((props: NetlifyProps) =>
+  import(`../images/netlify-${props.theme === "light" ? "light" : "dark"}.svg`)
+)
 
 export default () => (
   <footer className="flex flex-col">
@@ -102,7 +108,7 @@ export default () => (
         isIcon={true}
         className="flex justify-center my-5"
       >
-        <NetlifyLight />
+        <Netlify theme={useContext(ThemeProvider).mode} />
       </Button>
     </section>
   </footer>
@@ -128,7 +134,7 @@ const socials = [
       <FreeCodeCamp
         // @ts-ignore
         title="freeCodecamp Profile"
-        className="h-10 w-10 mx-2 inline-block"
+        className="fill-current h-10 w-10 mx-2 inline-block"
       />
     ),
   },
@@ -158,14 +164,10 @@ const socials = [
     ),
   },
   {
-    label: "classNameitter Profile",
-    href: "https://classNameitter.com/brandon_julio_t",
+    label: "Twitter Profile",
+    href: "https://Twitter.com/brandon_julio_t",
     Component: (
-      <Icon
-        className="h-10 mx-2"
-        path={mdiTwitter}
-        title="classNameitter Profile"
-      />
+      <Icon className="h-10 mx-2" path={mdiTwitter} title="Twitter Profile" />
     ),
   },
 ]

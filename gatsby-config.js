@@ -10,8 +10,8 @@ module.exports = {
     siteUrl: `https://www.brandonjuliothenaro.my.id`,
   },
   plugins: [
+    `gatsby-plugin-layout`,
     `gatsby-plugin-loadable-components-ssr`,
-    `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-robots-txt`,
@@ -38,13 +38,22 @@ module.exports = {
         theme_color: `#FFFFFF`,
         display: `minimal-ui`,
         icon: `src/images/icon.jpg`, // This path is relative to the root of the site.
+        cache_busting_mode: "none",
+      },
+    },
+
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        workboxConfig: {
+          globPatterns: ["**/*"],
+        },
       },
     },
 
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        // The property ID; the tracking code won't be generated without it
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
       },
     },
@@ -53,7 +62,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images/, // See below to configure properly
+          include: /images/,
         },
       },
     },
@@ -68,11 +77,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
-        // Setting a color is optional.
         color: `tomato`,
-        // Disable the loading spinner.
         showSpinner: false,
       },
-    }
+    },
   ],
 }

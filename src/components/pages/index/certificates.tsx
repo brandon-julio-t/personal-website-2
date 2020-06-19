@@ -14,7 +14,7 @@ export default () => (
           isIcon={true}
           key={idx}
         >
-          <cert.Component className="transition duration-300 shadow hover:shadow-md transform hover:scale-110" />
+          <cert.Component className="transition duration-300 shadow hover:shadow-md transform hover:scale-105" />
         </Button>
       ))}
     </div>

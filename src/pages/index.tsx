@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 import loadable from "@loadable/component"
 
-const Layout = loadable(() => import("../components/layout"))
+import PageContext from "../context/page"
 
 const Certificates = loadable(() =>
   import("../components/pages/index/certificates")
@@ -13,19 +13,23 @@ const TechnicalSkillsOverview = loadable(() =>
   import("../components/pages/index/technical-skills-overview")
 )
 
-export default () => (
-  <Layout title="Home">
-    <section className="text-center font-light">
-      <p className="grid grid-cols-2 divide-x max-w-xs mx-auto">
-        <span>Lifelong Learner</span>
-        <span>Web Developer</span>
-      </p>
+export default () => {
+  useContext(PageContext).setTitle("Home")
 
-      <p>Since 2019</p>
-    </section>
+  return (
+    <>
+      <section className="text-center font-light">
+        <p className="grid grid-cols-2 divide-x max-w-xs mx-auto">
+          <span>Lifelong Learner</span>
+          <span>Web Developer</span>
+        </p>
 
-    <TechnicalSkillsOverview />
-    <PinnedGithubProjects />
-    <Certificates />
-  </Layout>
-)
+        <p>Since 2019</p>
+      </section>
+
+      <TechnicalSkillsOverview />
+      <PinnedGithubProjects />
+      <Certificates />
+    </>
+  )
+}

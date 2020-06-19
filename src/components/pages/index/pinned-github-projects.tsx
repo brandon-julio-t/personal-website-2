@@ -1,13 +1,11 @@
-import { gql } from "apollo-boost"
 import React, { memo } from "react"
 import loadable from "@loadable/component"
+import { gql, DocumentNode } from "apollo-boost"
 import { useQuery } from "@apollo/react-hooks"
 
+const Card = loadable(() => import("./components/card"))
 const IndexSection = loadable(() => import("./components/index-section"))
 const APIError = loadable(() => import("./components/api-error"))
-const PinnedRepositoriesLoading = loadable(() =>
-  import("./components/pinned-repositories-loading")
-)
 const PinnedRepositoriesCards = loadable(() =>
   import("./components/pinned-repositories-cards")
 )
@@ -22,26 +20,27 @@ export default memo(() => {
 
   return (
     <IndexSection title="Pinned GitHub Projects">
-      {loading ? (
-        <PinnedRepositoriesLoading />
-      ) : error ? (
+      {error ? (
         <APIError message={error.message} />
       ) : (
         <>
           <small className="text-center font-light mb-4 block">
-            Query count remaining: {data.rateLimit.remaining}
+            Query count remaining: {data?.rateLimit?.remaining ?? "loading..."}
             <br />
-            Will reset at: {prettyDateTime(data.rateLimit.resetAt)}
+            Will reset at: {prettyDateTime(data?.rateLimit?.resetAt) ?? "loading..."}
           </small>
 
-          <PinnedRepositoriesCards nodes={data.viewer.pinnedItems.nodes} />
+          <PinnedRepositoriesCards
+            mock={loading}
+            nodes={data?.viewer?.pinnedItems?.nodes}
+          />
         </>
       )}
     </IndexSection>
   )
 })
 
-const query = gql`
+const query: DocumentNode = gql`
   query($pinnedItemsLimit: Int!, $repositoryLanguageLimit: Int!) {
     rateLimit {
       remaining
@@ -68,7 +67,7 @@ const query = gql`
   }
 `
 
-const prettyDateTime = (date: string) =>
+const prettyDateTime = (date: string | null): string =>
   date &&
   new Intl.DateTimeFormat("en-US", {
     day: "numeric",

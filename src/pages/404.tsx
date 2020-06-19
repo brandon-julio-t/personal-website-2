@@ -1,11 +1,12 @@
-import React from "react"
-import loadable from "@loadable/component"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 
-const Layout = loadable(() => import("../components/layout"))
+import PageContext from "../context/page"
 
-export default () => (
-  <Layout title="404 Not Found">
+export default () => {
+  useContext(PageContext).setTitle("404 Not Found")
+
+  return (
     <div className="flex flex-row justify-center">
       <Link
         to="/"
@@ -14,5 +15,5 @@ export default () => (
         Return to Home
       </Link>
     </div>
-  </Layout>
-)
+  )
+}

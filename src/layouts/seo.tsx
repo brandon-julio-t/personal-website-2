@@ -5,19 +5,21 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useContext } from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+
+import PageContext from "../context/page"
+import ThemeContext from "../context/theme"
 
 interface SEOProps {
   description?: string
   lang?: string
   meta?: object[] | any[]
-  title: string
 }
 
 export default function SEO(props: SEOProps) {
-  const { description, lang, meta, title } = props
+  const { description, lang, meta } = props
   const { site, favicon } = useStaticQuery(
     graphql`
       query {
@@ -40,12 +42,20 @@ export default function SEO(props: SEOProps) {
     `
   )
 
+  const theme = useContext(ThemeContext)
+  const { title } = useContext(PageContext)
+
+  const faviconURL = `${site.siteMetadata.siteUrl}${favicon.childImageSharp.fluid.srcWebp}`
+  const isLight = theme.mode === "light"
   const metaDescription = description ?? site.siteMetadata.description
 
   return (
     <Helmet
       htmlAttributes={{
         lang: lang ?? "en-US",
+        class: `${isLight ? "bg-white" : "bg-black"} ${
+          isLight ? "text-black" : "text-white"
+        }`,
       }}
       title={title}
       meta={[
@@ -63,7 +73,7 @@ export default function SEO(props: SEOProps) {
         },
         {
           property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}${favicon.childImageSharp.fluid.srcWebp}`,
+          content: faviconURL,
         },
         {
           property: `og:type`,
@@ -93,7 +103,7 @@ export default function SEO(props: SEOProps) {
           "@type": "Person",
           name: "Brandon Julio Thenaro",
           url: site.siteMetadata.siteUrl,
-          image: `${site.siteMetadata.siteUrl}${favicon.childImageSharp.fluid.srcWebp}`,
+          image: faviconURL,
           sameAs: [
             "https://www.facebook.com/profile.php?id=100008724798107",
             "https://twitter.com/brandon_julio_t",

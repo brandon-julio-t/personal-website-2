@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 import loadable from "@loadable/component"
 
-const Layout = loadable(() => import("../components/layout"))
+import PageContext from "../context/page"
 
 const Databases = loadable(() => import("../components/pages/skills/databases"))
 const Frameworks = loadable(() =>
@@ -10,13 +10,15 @@ const Frameworks = loadable(() =>
 const Languages = loadable(() => import("../components/pages/skills/languages"))
 const Others = loadable(() => import("../components/pages/skills/others"))
 
-export default () => (
-  <Layout title="Technical Skills">
+export default () => {
+  useContext(PageContext).setTitle("Technical Skills")
+
+  return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <Languages />
       <Frameworks />
       <Databases />
       <Others />
     </div>
-  </Layout>
-)
+  )
+}

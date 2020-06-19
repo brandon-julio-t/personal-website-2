@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useContext } from "react"
 import loadable from "@loadable/component"
 
-const Layout = loadable(() => import("../components/layout"))
+import PageContext from "../context/page"
+
 const Button = loadable(() => import("../components/common/button"))
 
-export default () => (
-  <Layout title="Contact">
+export default () => {
+  useContext(PageContext).setTitle("Contact")
+
+  return (
     <form
       name="contact"
       method="POST"
@@ -37,7 +40,9 @@ export default () => (
         required
       />
 
-      <Button type="submit" isIcon={false}>Submit</Button>
+      <Button type="submit" isIcon={false}>
+        Submit
+      </Button>
     </form>
-  </Layout>
-)
+  )
+}
