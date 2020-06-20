@@ -31,13 +31,11 @@ export default (props: LayoutProps) => {
           </main>
           <Footer />
 
-          <div id="particlesjs-container">
-            <canvas
-              id="particlesjs"
-              className="h-screen w-screen fixed top-0"
-              style={{ zIndex: -1 }}
-            />
-          </div>
+          <div
+            id="particles-js"
+            className="fixed top-0 h-screen w-screen z-0"
+            style={{ zIndex: -1 }}
+          />
         </PageContextProvider>
       </ThemeContextProvider>
     </ApolloProvider>

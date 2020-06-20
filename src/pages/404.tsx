@@ -1,7 +1,9 @@
 import React, { useContext, useEffect } from "react"
-import { Link } from "gatsby"
+import loadable from "@loadable/component"
 
 import PageContext from "../context/page"
+
+const Button = loadable(() => import("../components/common/button"))
 
 export default () => {
   const { setTitle } = useContext(PageContext)
@@ -12,12 +14,9 @@ export default () => {
 
   return (
     <div className="flex flex-row justify-center">
-      <Link
-        to="/"
-        className="text-4xl border border-gray-500 hover:border-black transition duration-300 rounded px-5 py-3"
-      >
+      <Button className="text-4xl" isIcon={false} to="/">
         Return to Home
-      </Link>
+      </Button>
     </div>
   )
 }
