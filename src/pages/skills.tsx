@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useLayoutEffect } from "react"
 import loadable from "@loadable/component"
 
 import PageContext from "../context/page"
@@ -13,7 +13,7 @@ const Others = loadable(() => import("../components/pages/skills/others"))
 export default () => {
   const { setTitle } = useContext(PageContext)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTitle("Technical Skills")
   }, [])
 

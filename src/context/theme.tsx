@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react"
+import React, { createContext, useState, useLayoutEffect } from "react"
 
 interface ThemeContextProviderProps {
   children: React.ReactNode
@@ -10,7 +10,7 @@ const ThemeContext = createContext(defaultValue)
 const ThemeContextProvider = (props: ThemeContextProviderProps) => {
   const [theme, setTheme] = useState(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     require("particles.js")
 
     const savedTheme = localStorage.getItem("theme")

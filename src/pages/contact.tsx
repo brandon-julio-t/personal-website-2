@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useLayoutEffect } from "react"
 import loadable from "@loadable/component"
 
 import PageContext from "../context/page"
@@ -11,7 +11,7 @@ export default () => {
   const { mode } = useContext(ThemeContext)
   const isLight = mode === "light"
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTitle("Contact")
   }, [])
 

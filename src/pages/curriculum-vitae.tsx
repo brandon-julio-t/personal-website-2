@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useLayoutEffect } from "react"
 
 import PageContext from "../context/page"
 
 export default () => {
   const { setTitle } = useContext(PageContext)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTitle("Curriculum Vitae")
   }, [])
 
