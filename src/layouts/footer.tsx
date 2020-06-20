@@ -106,18 +106,20 @@ export default () => {
           Background by{" "}
           <Button
             className="underline"
-            href="https://marcbruederlin.github.io/particles.js/"
+            href="https://vincentgarreau.com/particles.js/"
             isIcon={true}
           >
             particles.js
           </Button>
         </p>
+      </section>
 
+      <section className="mx-auto">
         <Button
           ariaLabel="Netlify logo"
           href="https://www.netlify.com"
           isIcon={true}
-          className="flex justify-center my-5"
+          className="mx-auto"
         >
           {theme.mode === "light" ? <NetlifyLight /> : <NetlifyDark />}
         </Button>
