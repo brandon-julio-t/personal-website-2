@@ -1,5 +1,5 @@
 import ApolloClient from "apollo-boost"
-import React, { useEffect, useContext } from "react"
+import React from "react"
 import fetch from "isomorphic-fetch"
 import loadable from "@loadable/component"
 import { ApolloProvider } from "@apollo/react-hooks"

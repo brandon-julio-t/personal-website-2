@@ -3,7 +3,9 @@ import loadable from "@loadable/component"
 
 const SkillSection = loadable(() => import("./components/skill-section"))
 
-export default () => <SkillSection title="Languages" skillCategories={languages} />
+export default () => (
+  <SkillSection title="Languages" skillCategories={languages} />
+)
 
 const languages = [
   {
