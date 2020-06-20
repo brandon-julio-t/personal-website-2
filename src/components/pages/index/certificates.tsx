@@ -9,7 +9,7 @@ export default () => (
     <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
       {certificates.map((cert, idx) => (
         <Button ariaLabel={cert.label} href={cert.url} isIcon={true} key={idx}>
-          <cert.Component className="bg-gray-300 transition duration-300 shadow hover:shadow-md transform hover:scale-105" />
+          <cert.Component className="transition duration-300 shadow hover:shadow-md transform hover:scale-105" />
         </Button>
       ))}
     </div>

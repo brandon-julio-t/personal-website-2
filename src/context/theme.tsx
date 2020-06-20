@@ -40,7 +40,7 @@ const ThemeContextProvider = (props: ThemeContextProviderProps) => {
 
           if (typeof window !== `undefined`) {
             localStorage.setItem("theme", toggledTheme)
-            cleanParticlesJS()
+            clearParticles()
             initParticlesJS({ dark: toggledTheme === "dark" })
           }
         },
@@ -57,7 +57,7 @@ function initParticlesJS({ dark }) {
   particlesJS("particles-js", paramsByTheme({ dark }))
 }
 
-function cleanParticlesJS() {
+function clearParticles() {
   pJSDom.forEach(p => p.pJS.fn.vendors.destroypJS())
   pJSDom = []
 }
