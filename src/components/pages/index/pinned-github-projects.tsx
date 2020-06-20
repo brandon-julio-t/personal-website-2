@@ -3,8 +3,10 @@ import loadable from "@loadable/component"
 import { gql, DocumentNode } from "apollo-boost"
 import { useQuery } from "@apollo/react-hooks"
 
+import IndexSection from "./components/index-section"
+import PinnedRepositoriesCardsMock from "./components/pinned-repositories-cards-mock"
+
 const APIError = loadable(() => import("./components/api-error"))
-const IndexSection = loadable(() => import("./components/index-section"))
 const PinnedRepositoriesCards = loadable(() =>
   import("./components/pinned-repositories-cards")
 )
@@ -19,22 +21,21 @@ export default memo(() => {
 
   return (
     <IndexSection title="Pinned GitHub Projects">
-      {error ? (
+      {error ? null : (
+        <small className="text-center font-light mb-4 block">
+          Query count remaining: {data?.rateLimit?.remaining ?? "loading..."}
+          <br />
+          Will reset at:{" "}
+          {prettyDateTime(data?.rateLimit?.resetAt) ?? "loading..."}
+        </small>
+      )}
+
+      {loading ? (
+        <PinnedRepositoriesCardsMock />
+      ) : error ? (
         <APIError message={error.message} />
       ) : (
-        <>
-          <small className="text-center font-light mb-4 block">
-            Query count remaining: {data?.rateLimit?.remaining ?? "loading..."}
-            <br />
-            Will reset at:{" "}
-            {prettyDateTime(data?.rateLimit?.resetAt) ?? "loading..."}
-          </small>
-
-          <PinnedRepositoriesCards
-            mock={loading}
-            nodes={data?.viewer?.pinnedItems?.nodes}
-          />
-        </>
+        <PinnedRepositoriesCards nodes={data?.viewer?.pinnedItems?.nodes} />
       )}
     </IndexSection>
   )

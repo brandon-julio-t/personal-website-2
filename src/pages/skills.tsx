@@ -1,14 +1,11 @@
 import React, { useContext, useLayoutEffect } from "react"
-import loadable from "@loadable/component"
 
 import PageContext from "../context/page"
 
-const Databases = loadable(() => import("../components/pages/skills/databases"))
-const Frameworks = loadable(() =>
-  import("../components/pages/skills/frameworks")
-)
-const Languages = loadable(() => import("../components/pages/skills/languages"))
-const Others = loadable(() => import("../components/pages/skills/others"))
+import Databases from "../components/pages/skills/databases"
+import Frameworks from "../components/pages/skills/frameworks"
+import Languages from "../components/pages/skills/languages"
+import Others from "../components/pages/skills/others"
 
 export default () => {
   const { setTitle } = useContext(PageContext)

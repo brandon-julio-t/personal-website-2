@@ -7,7 +7,7 @@ const Icon = loadable(() => import("@mdi/react"))
 
 export default () => {
   return (
-    <nav className="container divide-x grid grid-cols-4 justify-between mt-5 mx-auto text-center tracking-widest">
+    <nav className="container divide-x grid grid-cols-4 justify-between pt-5 mx-auto text-center tracking-widest">
       {navLinks.map((navLink, idx) => (
         <Link to={navLink.link} key={idx}>
           {navLink.label ?? navLink.title}

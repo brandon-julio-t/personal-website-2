@@ -1,5 +1,5 @@
-import React, { useContext } from "react"
 import loadable from "@loadable/component"
+import React, { useContext } from "react"
 
 import {
   mdiEmail,
@@ -13,23 +13,21 @@ import {
   mdiTwitter,
 } from "@mdi/js"
 
-import ThemeProvider from "../context/theme"
+import PageProvider from "../context/page"
 
 const Icon = loadable(() => import("@mdi/react"))
 
 const Button = loadable(() => import("../components/common/button"))
-const FreeCodeCamp = loadable(() =>
-  // @ts-ignore: this works
-  import("../images/free-code-camp-logo.svg")
-)
 
 // @ts-ignore
-const NetlifyLight = loadable(() => import(`../images/netlify-light.svg`))
+import FreeCodeCamp from "../images/free-code-camp-logo.svg"
 // @ts-ignore
-const NetlifyDark = loadable(() => import(`../images/netlify-dark.svg`))
+const NetlifyDark = loadable(() => import("../images/netlify-dark.svg"))
+// @ts-ignore
+const NetlifyLight = loadable(() => import("../images/netlify-light.svg"))
 
 export default () => {
-  const theme = useContext(ThemeProvider)
+  const { theme } = useContext(PageProvider)
 
   return (
     <footer className="flex flex-col">
@@ -121,7 +119,7 @@ export default () => {
           isIcon={true}
           className="mx-auto"
         >
-          {theme.mode === "light" ? <NetlifyLight /> : <NetlifyDark />}
+          {theme === "light" ? <NetlifyLight /> : <NetlifyDark />}
         </Button>
       </section>
     </footer>

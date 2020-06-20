@@ -10,7 +10,6 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 import PageContext from "../context/page"
-import ThemeContext from "../context/theme"
 
 interface SEOProps {
   description?: string
@@ -42,11 +41,10 @@ export default (props: SEOProps) => {
     `
   )
 
-  const theme = useContext(ThemeContext)
-  const { title } = useContext(PageContext)
+  const {theme, title} = useContext(PageContext)
 
   const faviconURL = `${site.siteMetadata.siteUrl}${favicon.childImageSharp.fluid.srcWebp}`
-  const isLight = theme.mode === "light"
+  const isLight = theme === "light"
   const metaDescription = description ?? site.siteMetadata.description
 
   return (

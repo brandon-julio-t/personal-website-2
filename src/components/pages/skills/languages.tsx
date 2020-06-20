@@ -1,7 +1,6 @@
 import React from "react"
-import loadable from "@loadable/component"
 
-const SkillSection = loadable(() => import("./components/skill-section"))
+import SkillSection from "./components/skill-section"
 
 export default () => (
   <SkillSection title="Languages" skillCategories={languages} />

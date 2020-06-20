@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 
-import ThemeContext from "../../../../context/theme"
+import PageContext from "../../../../context/page"
 
 interface CardProps {
   children?: React.ReactNode
@@ -8,7 +8,7 @@ interface CardProps {
 }
 
 export default (props: CardProps) => {
-  const isLight = useContext(ThemeContext).mode === "light"
+  const isLight = useContext(PageContext).theme === "light"
 
   return (
     <div

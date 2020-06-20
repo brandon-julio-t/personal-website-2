@@ -2,14 +2,12 @@ import React, { useContext, useLayoutEffect } from "react"
 import loadable from "@loadable/component"
 
 import PageContext from "../context/page"
-import ThemeContext from "../context/theme"
 
 const Button = loadable(() => import("../components/common/button"))
 
 export default () => {
-  const { setTitle } = useContext(PageContext)
-  const { mode } = useContext(ThemeContext)
-  const isLight = mode === "light"
+  const { theme, setTitle } = useContext(PageContext)
+  const isLight = theme === "light"
 
   useLayoutEffect(() => {
     setTitle("Contact")

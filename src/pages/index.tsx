@@ -1,17 +1,10 @@
 import React, { useContext, useLayoutEffect } from "react"
-import loadable from "@loadable/component"
 
 import PageContext from "../context/page"
 
-const Certificates = loadable(() =>
-  import("../components/pages/index/certificates")
-)
-const PinnedGithubProjects = loadable(() =>
-  import("../components/pages/index/pinned-github-projects")
-)
-const TechnicalSkillsOverview = loadable(() =>
-  import("../components/pages/index/technical-skills-overview")
-)
+import Certificates from "../components/pages/index/certificates"
+import PinnedGithubProjects from "../components/pages/index/pinned-github-projects"
+import TechnicalSkillsOverview from "../components/pages/index/technical-skills-overview"
 
 export default () => {
   const { setTitle } = useContext(PageContext)
