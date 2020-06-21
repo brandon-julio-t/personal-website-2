@@ -1,4 +1,4 @@
-import loadable from "@loadable/component"
+import Icon from "@mdi/react"
 import React, { useContext } from "react"
 
 import {
@@ -15,16 +15,10 @@ import {
 
 import PageProvider from "../context/page"
 
-const Icon = loadable(() => import("@mdi/react"))
-
-const Button = loadable(() => import("../components/common/button"))
-
-// @ts-ignore
-import FreeCodeCamp from "../images/free-code-camp-logo.svg"
-// @ts-ignore
-const NetlifyDark = loadable(() => import("../images/netlify-dark.svg"))
-// @ts-ignore
-const NetlifyLight = loadable(() => import("../images/netlify-light.svg"))
+import Button from "../components/common/button" // @ts-ignore
+import FreeCodeCamp from "../images/free-code-camp-logo.svg" // @ts-ignore
+import NetlifyDark from "../images/netlify-dark.svg" // @ts-ignore
+import NetlifyLight from "../images/netlify-light.svg"
 
 export default () => {
   const { theme } = useContext(PageProvider)

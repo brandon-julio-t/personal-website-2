@@ -1,8 +1,8 @@
 import React from "react"
 import loadable from "@loadable/component"
 
-const IndexSection = loadable(() => import("./components/index-section"))
-const Button = loadable(() => import("../../common/button"))
+import Button from "../../common/button"
+import IndexSection from "./components/index-section"
 
 export default () => (
   <IndexSection title="Certificates">

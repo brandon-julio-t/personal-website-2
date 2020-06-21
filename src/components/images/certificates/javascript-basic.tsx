@@ -1,10 +1,8 @@
+import Img from "gatsby-image"
 import React from "react"
-import loadable from "@loadable/component"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { ImageProps } from "../image-props"
-
-const Img = loadable(() => import("gatsby-image"))
 
 export default (props: ImageProps) => {
   const data = useStaticQuery(graphql`

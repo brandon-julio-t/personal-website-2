@@ -5,22 +5,20 @@ import { mdiHome, mdiFileDocument, mdiTools, mdiChat } from "@mdi/js"
 
 const Icon = loadable(() => import("@mdi/react"))
 
-export default () => {
-  return (
-    <nav className="container divide-x grid grid-cols-4 justify-between pt-5 mx-auto text-center tracking-widest">
-      {navLinks.map((navLink, idx) => (
-        <Link to={navLink.link} key={idx}>
-          {navLink.label ?? navLink.title}
-          <Icon
-            className="h-8 mx-auto"
-            path={navLink.icon}
-            title={navLink.title}
-          />
-        </Link>
-      ))}
-    </nav>
-  )
-}
+export default () => (
+  <nav className="container divide-x grid grid-cols-4 justify-between pt-5 mx-auto text-center tracking-widest">
+    {navLinks.map((navLink, idx) => (
+      <Link to={navLink.link} key={idx}>
+        {navLink.label ?? navLink.title}
+        <Icon
+          className="h-8 mx-auto"
+          path={navLink.icon}
+          title={navLink.title}
+        />
+      </Link>
+    ))}
+  </nav>
+)
 
 const navLinks = [
   {

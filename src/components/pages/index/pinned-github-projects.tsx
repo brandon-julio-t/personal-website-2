@@ -1,4 +1,4 @@
-import React, { memo } from "react"
+import React from "react"
 import loadable from "@loadable/component"
 import { gql, DocumentNode } from "apollo-boost"
 import { useQuery } from "@apollo/react-hooks"
@@ -11,7 +11,7 @@ const PinnedRepositoriesCards = loadable(() =>
   import("./components/pinned-repositories-cards")
 )
 
-export default memo(() => {
+export default () => {
   const { loading, error, data } = useQuery(query, {
     variables: {
       pinnedItemsLimit: 10,
@@ -39,7 +39,7 @@ export default memo(() => {
       )}
     </IndexSection>
   )
-})
+}
 
 const query: DocumentNode = gql`
   query($pinnedItemsLimit: Int!, $repositoryLanguageLimit: Int!) {

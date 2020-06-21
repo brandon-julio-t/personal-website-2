@@ -1,5 +1,5 @@
+import Icon from "@mdi/react"
 import React from "react"
-import loadable from "@loadable/component"
 
 import {
   mdiDatabase,
@@ -10,12 +10,10 @@ import {
   mdiVuejs,
 } from "@mdi/js"
 
-const Icon = loadable(() => import("@mdi/react"))
-
-const Button = loadable(() => import("../../common/button"))
-const Card = loadable(() => import("./components/card"))
-const H3 = loadable(() => import("./components/h3"))
-const IndexSection = loadable(() => import("./components/index-section"))
+import Button from "../../common/button"
+import Card from "./components/card"
+import H3 from "./components/h3"
+import IndexSection from "./components/index-section"
 
 export default () => (
   <IndexSection title="Technical Skills Overview">

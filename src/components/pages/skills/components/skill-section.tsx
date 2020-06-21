@@ -1,4 +1,4 @@
-import React, { memo } from "react"
+import React from "react"
 
 interface SkillItems {
   title: string
@@ -10,7 +10,7 @@ interface SkillSectionProps {
   skillCategories: SkillItems[]
 }
 
-export default memo((props: SkillSectionProps) => (
+export default (props: SkillSectionProps) => (
   <section>
     <h2 className="text-3xl">{props.title}</h2>
 
@@ -30,4 +30,4 @@ export default memo((props: SkillSectionProps) => (
       ))}
     </ul>
   </section>
-))
+)

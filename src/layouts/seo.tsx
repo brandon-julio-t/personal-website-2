@@ -41,7 +41,7 @@ export default (props: SEOProps) => {
     `
   )
 
-  const {theme, title} = useContext(PageContext)
+  const { theme, title } = useContext(PageContext)
 
   const faviconURL = `${site.siteMetadata.siteUrl}${favicon.childImageSharp.fluid.srcWebp}`
   const isLight = theme === "light"

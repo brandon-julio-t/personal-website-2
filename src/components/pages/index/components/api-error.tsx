@@ -1,8 +1,7 @@
 import React from "react"
-import loadable from "@loadable/component"
 
-const Card = loadable(() => import("./card"))
-const Button = loadable(() => import("../../../common/button"))
+import Button from "../../../common/button"
+import Card from "./card"
 
 interface APIErrorProps {
   message: string

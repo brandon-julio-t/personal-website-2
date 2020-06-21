@@ -1,14 +1,12 @@
+import Icon from "@mdi/react"
 import React, { useContext } from "react"
-import loadable from "@loadable/component"
 import { mdiGithub, mdiLaunch } from "@mdi/js"
 
 import PageProvider from "../../../../context/page"
 
-const Icon = loadable(() => import("@mdi/react"))
-
-const Button = loadable(() => import("../../../common/button"))
-const Card = loadable(() => import("./card"))
-const H3 = loadable(() => import("./h3"))
+import Button from "../../../common/button"
+import Card from "./card"
+import H3 from "./h3"
 
 interface PinnedRepositoriesCardsProps {
   nodes: PinnableItem[]

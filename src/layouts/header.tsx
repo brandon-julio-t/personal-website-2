@@ -1,12 +1,10 @@
+import Icon from "@mdi/react"
 import React, { useContext } from "react"
-import loadable from "@loadable/component"
 import { mdiBrightness3, mdiBrightness7 } from "@mdi/js"
 
 import PageContext from "../context/page"
 
-const Icon = loadable(() => import("@mdi/react"))
-
-const Button = loadable(() => import("../components/common/button"))
+import Button from "../components/common/button"
 
 export default () => {
   const { title, theme, toggleTheme } = useContext(PageContext)

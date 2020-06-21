@@ -1,9 +1,8 @@
 import React, { useContext, useLayoutEffect } from "react"
-import loadable from "@loadable/component"
 
 import PageContext from "../context/page"
 
-const Button = loadable(() => import("../components/common/button"))
+import Button from "../components/common/button"
 
 export default () => {
   const { theme, setTitle } = useContext(PageContext)
