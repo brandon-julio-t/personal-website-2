@@ -5,12 +5,12 @@ interface ThemeContextProviderProps {
 }
 
 const ThemeContext = createContext({
-  theme: "dark",
+  theme: "light",
   toggleTheme: () => null,
 })
 
 const ThemeContextProvider = (props: ThemeContextProviderProps) => {
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState("light")
 
   useLayoutEffect(() => {
     const savedTheme = localStorage.getItem("theme")

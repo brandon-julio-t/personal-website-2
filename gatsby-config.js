@@ -39,18 +39,10 @@ module.exports = {
         theme_color: `#FFFFFF`,
         display: `minimal-ui`,
         icon: `src/images/icon.jpg`,
-        cache_busting_mode: "none",
       },
     },
 
-    {
-      resolve: "gatsby-plugin-offline",
-      options: {
-        workboxConfig: {
-          globPatterns: ["**/*"],
-        },
-      },
-    },
+    "gatsby-plugin-offline",
 
     {
       resolve: `gatsby-plugin-google-analytics`,
