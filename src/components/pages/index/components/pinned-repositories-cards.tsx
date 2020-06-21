@@ -2,7 +2,7 @@ import Icon from "@mdi/react"
 import React, { useContext } from "react"
 import { mdiGithub, mdiLaunch } from "@mdi/js"
 
-import PageProvider from "../../../../context/page"
+import ThemeProvider from "../../../../context/theme"
 
 import Button from "../../../common/button"
 import Card from "./card"
@@ -44,7 +44,7 @@ export default (props: PinnedRepositoriesCardsProps) => (
             {repo.languages.nodes.map((lang: Language, langIdx: number) => (
               <span
                 className={`rounded-full ${
-                  useContext(PageProvider).theme === "light"
+                  useContext(ThemeProvider).theme === "light"
                     ? "bg-gray-200"
                     : "bg-gray-800"
                 } flex-none px-3 py-1 mr-2 mb-2`}

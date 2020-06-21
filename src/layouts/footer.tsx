@@ -1,5 +1,6 @@
 import Icon from "@mdi/react"
 import React, { useContext } from "react"
+import loadable from "@loadable/component"
 
 import {
   mdiEmail,
@@ -13,12 +14,13 @@ import {
   mdiTwitter,
 } from "@mdi/js"
 
-import PageProvider from "../context/page"
+import PageProvider from "../context/theme"
 
 import Button from "../components/common/button" // @ts-ignore
 import FreeCodeCamp from "../images/free-code-camp-logo.svg" // @ts-ignore
-import NetlifyDark from "../images/netlify-dark.svg" // @ts-ignore
-import NetlifyLight from "../images/netlify-light.svg"
+
+const NetlifyDark = loadable(() => import("../images/netlify-dark.svg")) // @ts-ignore
+const NetlifyLight = loadable(() => import("../images/netlify-light.svg"))
 
 export default () => {
   const { theme } = useContext(PageProvider)
@@ -26,14 +28,19 @@ export default () => {
   return (
     <footer className="flex flex-col">
       <section className="flex flex-row flex-wrap justify-center">
-        {socials.map((s, idx) =>
-          s.label === "Email" ? (
-            <a aria-label={s.label} href={s.href} key={idx}>
-              {s.Component}
+        {socials.map((social, idx) =>
+          social.label === "Email" ? (
+            <a aria-label={social.label} href={social.href} key={idx}>
+              {social.Component}
             </a>
           ) : (
-            <Button ariaLabel={s.label} href={s.href} isIcon={true} key={idx}>
-              {s.Component}
+            <Button
+              ariaLabel={social.label}
+              href={social.href}
+              isIcon={true}
+              key={idx}
+            >
+              {social.Component}
             </Button>
           )
         )}

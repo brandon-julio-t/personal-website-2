@@ -1,18 +1,12 @@
-import React, { useContext, useLayoutEffect } from "react"
-
-import PageContext from "../context/page"
+import React from "react"
 
 import Button from "../components/common/button"
+import Layout from "../layouts"
+import NameInput from "../components/pages/contact/name-input"
+import MessageInput from "../components/pages/contact/message-input"
 
-export default () => {
-  const { theme, setTitle } = useContext(PageContext)
-  const isLight = theme === "light"
-
-  useLayoutEffect(() => {
-    setTitle("Contact")
-  }, [])
-
-  return (
+export default () => (
+  <Layout title="Contact">
     <form
       name="contact"
       method="POST"
@@ -26,31 +20,13 @@ export default () => {
 
       <input type="hidden" name="form-name" value="contact" />
 
-      <input
-        autoCapitalize="words"
-        autoComplete="name"
-        autoFocus={true}
-        name="Name"
-        placeholder="Name (Optional)"
-        className={`border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4 ${
-          isLight ? "bg-white" : "bg-black"
-        }`}
-        type="text"
-      />
+      <NameInput />
 
-      <textarea
-        name="Message"
-        placeholder="Message (Required)"
-        rows={10}
-        className={`border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4 my-5 ${
-          isLight ? "bg-white" : "bg-black"
-        }`}
-        required
-      />
+      <MessageInput />
 
       <Button type="submit" isIcon={false}>
         Submit
       </Button>
     </form>
-  )
-}
+  </Layout>
+)

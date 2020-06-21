@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
 
-import PageContext from "../../context/page"
+import ThemeContext from "../../context/theme"
 
 interface ButtonProps {
   ariaLabel?: string
@@ -15,7 +15,7 @@ interface ButtonProps {
 }
 
 export default (props: ButtonProps) => {
-  const isLight = useContext(PageContext).theme === "light"
+  const isLight = useContext(ThemeContext).theme === "light"
 
   const base = `
     ${isLight ? "bg-white" : "bg-black"}
@@ -35,7 +35,7 @@ export default (props: ButtonProps) => {
   `
 
   const { children, className, href, isIcon, onClick, to, type } = props
-  const style = isIcon ? className : `${base} ${className}`
+  const style = isIcon ? className : `${base} ${className ?? ""}`
 
   if (to)
     return (

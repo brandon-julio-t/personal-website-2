@@ -11,14 +11,14 @@ module.exports = {
   },
 
   plugins: [
-    `gatsby-plugin-layout`,
     `gatsby-plugin-loadable-components-ssr`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
-    // `gatsby-plugin-webpack-bundle-analyser-v2`,
+    `gatsby-plugin-webpack-bundle-analyser-v2`,
     `gatsby-transformer-sharp`,
 
     {

@@ -9,16 +9,17 @@ import React, { useContext } from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-import PageContext from "../context/page"
+import ThemeContext from "../context/theme"
 
 interface SEOProps {
   description?: string
   lang?: string
   meta?: object[] | any[]
+  title: string
 }
 
 export default (props: SEOProps) => {
-  const { description, lang, meta } = props
+  const { description, lang, meta, title } = props
   const { site, favicon } = useStaticQuery(
     graphql`
       query {
@@ -41,7 +42,7 @@ export default (props: SEOProps) => {
     `
   )
 
-  const { theme, title } = useContext(PageContext)
+  const { theme } = useContext(ThemeContext)
 
   const faviconURL = `${site.siteMetadata.siteUrl}${favicon.childImageSharp.fluid.srcWebp}`
   const isLight = theme === "light"

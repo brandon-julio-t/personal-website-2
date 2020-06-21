@@ -35,7 +35,10 @@ export default () => {
       ) : error ? (
         <APIError message={error.message} />
       ) : (
-        <PinnedRepositoriesCards nodes={data?.viewer?.pinnedItems?.nodes} />
+        <PinnedRepositoriesCards
+          fallback={<PinnedRepositoriesCardsMock />}
+          nodes={data?.viewer?.pinnedItems?.nodes}
+        />
       )}
     </IndexSection>
   )

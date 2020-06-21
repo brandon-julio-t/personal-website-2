@@ -1,15 +1,9 @@
-import React, { useContext, useLayoutEffect } from "react"
+import React from "react"
 
-import PageContext from "../context/page"
+import Layout from "../layouts"
 
-export default () => {
-  const { setTitle } = useContext(PageContext)
-
-  useLayoutEffect(() => {
-    setTitle("Curriculum Vitae")
-  }, [])
-
-  return (
+export default () => (
+  <Layout title="Curriculum Vitae">
     <iframe
       frameBorder="0"
       scrolling="no"
@@ -17,5 +11,5 @@ export default () => {
       title="curriculum-vitae"
       className="bg-gray-300 rounded w-full h-screen hover:shadow transition duration-300"
     />
-  )
-}
+  </Layout>
+)

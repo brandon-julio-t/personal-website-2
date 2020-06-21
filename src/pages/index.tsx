@@ -1,32 +1,36 @@
-import React, { useContext, useLayoutEffect } from "react"
+import React from "react"
 
-import PageContext from "../context/page"
+import ApolloClient from "apollo-boost"
+import fetch from "isomorphic-fetch"
+import { ApolloProvider } from "@apollo/react-hooks"
 
 import Certificates from "../components/pages/index/certificates"
+import Layout from "../layouts"
 import PinnedGithubProjects from "../components/pages/index/pinned-github-projects"
 import TechnicalSkillsOverview from "../components/pages/index/technical-skills-overview"
 
-export default () => {
-  const { setTitle } = useContext(PageContext)
+export default () => (
+  <Layout title="Home">
+    <section className="text-center font-light">
+      <p className="grid grid-cols-2 divide-x max-w-xs mx-auto">
+        <span>Lifelong Learner</span>
+        <span>Web Developer</span>
+      </p>
 
-  useLayoutEffect(() => {
-    setTitle("Home")
-  }, [])
+      <p>Since 2019</p>
+    </section>
 
-  return (
-    <>
-      <section className="text-center font-light">
-        <p className="grid grid-cols-2 divide-x max-w-xs mx-auto">
-          <span>Lifelong Learner</span>
-          <span>Web Developer</span>
-        </p>
+    <TechnicalSkillsOverview />
 
-        <p>Since 2019</p>
-      </section>
-
-      <TechnicalSkillsOverview />
+    <ApolloProvider client={client}>
       <PinnedGithubProjects />
-      <Certificates />
-    </>
-  )
-}
+    </ApolloProvider>
+
+    <Certificates />
+  </Layout>
+)
+
+const client = new ApolloClient({
+  uri: "/.netlify/functions/graphql",
+  fetch,
+})

@@ -1,24 +1,18 @@
 import React, { createContext, useState, useLayoutEffect } from "react"
 
-interface PageContextProviderProps {
+interface ThemeContextProviderProps {
   children: React.ReactNode
 }
 
-const PageContext = createContext({
+const ThemeContext = createContext({
   theme: "dark",
   toggleTheme: () => null,
-
-  title: "Home",
-  setTitle: (title: string) => null,
 })
 
-const PageContextProvider = (props: PageContextProviderProps) => {
+const ThemeContextProvider = (props: ThemeContextProviderProps) => {
   const [theme, setTheme] = useState("dark")
-  const [title, setTitle] = useState("Home")
 
   useLayoutEffect(() => {
-    require("particles.js")
-
     const savedTheme = localStorage.getItem("theme")
     const noThemeIsSaved = !savedTheme
 
@@ -37,7 +31,7 @@ const PageContextProvider = (props: PageContextProviderProps) => {
   }, [])
 
   return (
-    <PageContext.Provider
+    <ThemeContext.Provider
       value={{
         theme,
         toggleTheme: () => {
@@ -50,17 +44,14 @@ const PageContextProvider = (props: PageContextProviderProps) => {
             initParticlesJS(toggledTheme)
           }
         },
-
-        title,
-        setTitle: (title: string) => setTitle(title),
       }}
     >
       {props.children}
-    </PageContext.Provider>
+    </ThemeContext.Provider>
   )
 }
 
-export { PageContext as default, PageContextProvider }
+export { ThemeContext as default, ThemeContextProvider }
 
 function initParticlesJS(theme: string) {
   // @ts-ignore

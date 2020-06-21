@@ -1,5 +1,3 @@
-const axios = require("axios").default
-
 module.exports = {
   Query: {
     rateLimit: async (parent, args, context, info) =>
