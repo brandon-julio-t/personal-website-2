@@ -14,17 +14,15 @@ interface LayoutProps {
 
 export default (props: LayoutProps) => (
   <ThemeContextProvider>
-    <div className="z-50">
-      <SEO title={props.title} />
-      <Navbar />
-      <Header title={props.title} />
-      <main className="container mx-auto px-4">
-        <hr className="my-4" />
-        {props.children}
-        <hr className="my-4" />
-      </main>
-      <Footer />
-    </div>
+    <SEO title={props.title} />
+    <Navbar />
+    <Header title={props.title} />
+    <main className="container mx-auto px-4">
+      <hr className="my-4" />
+      {props.children}
+      <hr className="my-4" />
+    </main>
+    <Footer />
 
     <div
       id="particles-js"
