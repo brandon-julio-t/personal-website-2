@@ -17,6 +17,17 @@ interface ButtonProps {
 export default (props: ButtonProps) => {
   const isLight = useContext(ThemeContext).theme === "light"
 
+  const {
+    ariaLabel,
+    children,
+    className,
+    href,
+    isIcon,
+    onClick,
+    to,
+    type,
+  } = props
+
   const base = `
     ${isLight ? "bg-white" : "bg-black"}
     active:bg-gray-100
@@ -35,12 +46,11 @@ export default (props: ButtonProps) => {
     transition-shadow
   `
 
-  const { children, className, href, isIcon, onClick, to, type } = props
   const style = isIcon ? className : `${base} ${className ?? ""}`
 
   if (to)
     return (
-      <Link aria-label={props.ariaLabel} className={style} to={to}>
+      <Link aria-label={ariaLabel} className={style} to={to}>
         {children}
       </Link>
     )
@@ -48,7 +58,7 @@ export default (props: ButtonProps) => {
   if (href)
     return (
       <a
-        aria-label={props.ariaLabel}
+        aria-label={ariaLabel}
         className={style}
         href={href}
         rel="noopener noreferrer"
@@ -60,7 +70,7 @@ export default (props: ButtonProps) => {
 
   return (
     <button
-      aria-label={props.ariaLabel}
+      aria-label={ariaLabel}
       className={style}
       onClick={onClick}
       type={type}
