@@ -14,19 +14,21 @@ interface LayoutProps {
 
 export default (props: LayoutProps) => (
   <ThemeContextProvider>
-    <SEO title={props.title} />
-    <Navbar />
-    <Header title={props.title} />
-    <main className="container mx-auto px-4">
-      <hr className="my-4" />
-      {props.children}
-      <hr className="my-4" />
-    </main>
-    <Footer />
+    <div className="z-50">
+      <SEO title={props.title} />
+      <Navbar />
+      <Header title={props.title} />
+      <main className="container mx-auto px-4">
+        <hr className="my-4" />
+        {props.children}
+        <hr className="my-4" />
+      </main>
+      <Footer />
+    </div>
 
     <div
       id="particles-js"
-      className="fixed top-0 h-screen w-screen z-0"
+      className="fixed top-0 h-screen w-screen"
       style={{ zIndex: -1 }}
     />
   </ThemeContextProvider>
