@@ -23,11 +23,5 @@ export default (props: LayoutProps) => (
       <hr className="my-4" />
     </main>
     <Footer />
-
-    <div
-      id="particles-js"
-      className="fixed top-0 h-screen w-screen"
-      style={{ zIndex: -1 }}
-    />
   </ThemeContextProvider>
 )

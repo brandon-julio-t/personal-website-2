@@ -9,7 +9,21 @@
 import "./src/layouts/particles"
 import "./src/styles/index.css"
 
-export const onRouteUpdate = () => {
+import React from "react"
+
+export const wrapRootElement = ({ element }) => (
+  <>
+    {element}
+
+    <div
+      id="particles-js"
+      className="fixed top-0 h-screen w-screen"
+      style={{ zIndex: -1 }}
+    />
+  </>
+)
+
+window.onload = () => {
   const { innerWidth, pJSDom, particlesJS } = window
 
   pJSDom.forEach(({ pJS }) => pJS.fn.vendors.destroypJS())
