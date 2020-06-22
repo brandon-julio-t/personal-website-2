@@ -63,7 +63,14 @@ export { ThemeContext as default, ThemeContextProvider }
 const params = {
   particles: {
     number: {
-      value: 64,
+      value:
+        window.innerWidth >= 1280
+          ? 64
+          : window.innerWidth >= 1024
+          ? 32
+          : window.innerWidth >= 768
+          ? 16
+          : 8,
       density: {
         enable: false,
         value_area: 800,
