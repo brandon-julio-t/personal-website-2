@@ -9,29 +9,23 @@
 import "./src/layouts/particles"
 import "./src/styles/index.css"
 
-import React from "react"
-
-export const wrapRootElement = ({ element }) => (
-  <>
-    {element}
-
-    <div
-      id="particles-js"
-      className="fixed top-0 h-screen w-screen"
-      style={{ zIndex: -1 }}
-    />
-  </>
-)
-
 window.onload = () => {
   const { innerWidth, pJSDom, particlesJS } = window
+
+  const id = "particles-js"
+
+  const div = document.createElement("div")
+  div.id = id
+  div.className = "fixed top-0 h-screen w-screen"
+  div.style.zIndex = -1
+  document.body.appendChild(div)
 
   pJSDom.forEach(({ pJS }) => pJS.fn.vendors.destroypJS())
 
   const lg = innerWidth >= 1024
   const md = innerWidth >= 768
   // @ts-ignore
-  particlesJS("particles-js", {
+  particlesJS(id, {
     particles: {
       number: {
         value: lg ? 32 : md ? 16 : 8,
