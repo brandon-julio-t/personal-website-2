@@ -28,8 +28,6 @@ export const onRouteUpdate = () => {
       },
       color: {
         value: [
-          "#000000",
-          "#FFFFFF",
           "#F7FAFC",
           "#EDF2F7",
           "#E2E8F0",

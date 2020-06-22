@@ -31,7 +31,8 @@ export default (props: ButtonProps) => {
     py-2
     rounded
     shadow
-    transition
+    transition-border
+    transition-shadow
   `
 
   const { children, className, href, isIcon, onClick, to, type } = props

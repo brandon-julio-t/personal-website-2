@@ -12,7 +12,7 @@ export default (props: CardProps) => {
 
   return (
     <div
-      className={`border rounded transition duration-300 shadow hover:shadow-md p-5 ${
+      className={`border rounded transition-shadow duration-300 shadow hover:shadow-md p-5 ${
         props.className
       } ${isLight ? "bg-white" : "bg-black"}`}
     >

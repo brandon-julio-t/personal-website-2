@@ -22,7 +22,7 @@ export default (props: HeaderProps) => {
       <div className="flex flex-row justify-center">
         <Button onClick={toggleTheme} isIcon={true}>
           <Icon
-            className="h-10 fill-current"
+            className="h-10 fill-current transition duration-300"
             path={theme === "light" ? mdiBrightness3 : mdiBrightness7}
             title="Toggle theme button"
           />

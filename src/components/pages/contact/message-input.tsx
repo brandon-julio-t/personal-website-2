@@ -10,9 +10,22 @@ export default () => {
       name="Message"
       placeholder="Message (Required)"
       rows={10}
-      className={`border rounded shadow hover:shadow-md focus:shadow-lg focus:border-gray-500 transition duration-300 outline-none p-4 my-5 ${
-        isLight ? "bg-white" : "bg-black"
-      }`}
+      className={`
+        ${isLight ? "bg-white" : "bg-black"}
+        border
+        border-gray-500
+        duration-300
+        focus:border-current
+        focus:shadow-lg
+        hover:shadow-md
+        my-5
+        outline-none
+        p-4
+        rounded
+        shadow
+        transition-border
+        transition-shadow
+      `}
       required
     />
   )
