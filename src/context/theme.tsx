@@ -203,7 +203,7 @@ function initParticlesJS() {
       },
       line_linked: {
         enable: true,
-        distance: 150,
+        distance: 256,
         color: "#ffffff",
         opacity: 1,
         width: 1,
