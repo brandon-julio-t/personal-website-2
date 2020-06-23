@@ -102,13 +102,26 @@ export default () => {
         </p>
 
         <p className="text-center">
-          Background by{" "}
+          Background inspired by{" "}
+          <Button className="underline" to="/background" isIcon={true}>
+            particles.js
+          </Button>{" "}
+          from
+          <br />
           <Button
             className="underline"
             href="https://vincentgarreau.com/particles.js/"
             isIcon={true}
           >
-            particles.js
+            Vincent Garreau
+          </Button>
+          {` and `}
+          <Button
+            className="underline"
+            href="https://marcbruederlin.github.io/particles.js/"
+            isIcon={true}
+          >
+            Marc Brüderlin
           </Button>
         </p>
       </section>

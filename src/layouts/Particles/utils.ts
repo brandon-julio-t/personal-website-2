@@ -4,10 +4,10 @@ import { Color } from "./classes"
 const pythagoras = (a: number, b: number): number => Math.sqrt(a ** 2 + b ** 2)
 
 const randomRadius = (): number => Math.floor(Math.random() * MAX_RADIUS) + 1
-const randomSpeed = (): number => Math.random()
+const randomSpeed = (): number => Math.random() // Don't know why this works well ¯\_(ツ)_/¯
 
-const randomX = (): number => Math.random() * window.innerWidth + 1
-const randomY = (): number => Math.random() * window.innerHeight + 1
+const randomX = (): number => Math.random() * window.innerWidth
+const randomY = (): number => Math.random() * window.innerHeight
 
 const randomColor = (): Color => {
   const idx = Math.floor(Math.random() * COLORS.length)

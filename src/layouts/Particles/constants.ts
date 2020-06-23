@@ -9,6 +9,10 @@ const MAX_RADIUS = 3
 
 export { LINKED_LINE_RANGE, MAX_RADIUS, canvas, ctx }
 
+/**
+ * Colors taken from Tailwind CSS colors
+ * https://tailwindcss.com/docs/customizing-colors#default-color-palette
+ */
 export const COLORS = [
   "#F7FAFC",
   "#EDF2F7",

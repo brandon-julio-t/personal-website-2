@@ -1,5 +1,3 @@
-import Stats from "stats.js"
-
 import { canvas, ctx } from "./constants"
 import { Circle } from "./classes"
 
@@ -10,8 +8,9 @@ let mouseX: number = -1
 let mouseY: number = -1
 
 export default class Particles {
-  static init(showFPS: boolean) {
+  static async init(showFPS: boolean) {
     if (showFPS) {
+      const { default: Stats } = await import("stats.js")
       stats = new Stats()
       stats.showPanel(0)
       document.body.appendChild(stats.dom)
@@ -69,15 +68,15 @@ export default class Particles {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       for (let i = 0; i < circles.length - 1; i++) {
-        const curr = circles[i]
+        const circle = circles[i]
 
-        curr.accelerate()
-        curr.drawCircle()
-        curr.linkToCoordinate(mouseX, mouseY)
+        circle.accelerate()
+        circle.drawCircle()
+        circle.linkToCoordinate(mouseX, mouseY)
 
-        if (curr.isOutOfView()) curr.wrapCircle()
+        if (circle.isOutOfView()) circle.wrapCircle()
 
-        for (let j = i + 1; j < circles.length; j++) curr.linkTo(circles[j])
+        for (let j = i + 1; j < circles.length; j++) circle.linkTo(circles[j])
       }
 
       if (showFPS) stats.end()

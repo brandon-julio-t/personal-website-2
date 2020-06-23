@@ -9,23 +9,32 @@ import Navbar from "./navbar"
 import SEO from "./seo"
 
 interface LayoutProps {
+  background?: boolean
   children: React.ReactNode
   title: string
 }
 
-export default (props: LayoutProps) => (
-  <ThemeContextProvider>
-    <SEO title={props.title} />
+export default (props: LayoutProps) => {
+  const { background, children, title } = props
 
-    <BlurContainer>
-      <Navbar />
-      <Header title={props.title} />
-      <main>
-        <hr className="my-4" />
-        {props.children}
-        <hr className="my-4" />
-      </main>
-      <Footer />
-    </BlurContainer>
-  </ThemeContextProvider>
-)
+  return (
+    <ThemeContextProvider>
+      <SEO title={title} />
+
+      {background ? (
+        children
+      ) : (
+        <BlurContainer>
+          <Navbar />
+          <Header title={title} />
+          <main>
+            <hr className="my-4" />
+            {children}
+            <hr className="my-4" />
+          </main>
+          <Footer />
+        </BlurContainer>
+      )}
+    </ThemeContextProvider>
+  )
+}
