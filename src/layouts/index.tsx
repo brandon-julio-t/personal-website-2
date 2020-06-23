@@ -2,6 +2,7 @@ import React from "react"
 
 import { ThemeContextProvider } from "../context/theme"
 
+import BlurContainer from "./blur-container"
 import Footer from "./footer"
 import Header from "./header"
 import Navbar from "./navbar"
@@ -15,13 +16,16 @@ interface LayoutProps {
 export default (props: LayoutProps) => (
   <ThemeContextProvider>
     <SEO title={props.title} />
-    <Navbar />
-    <Header title={props.title} />
-    <main className="container mx-auto px-4">
-      <hr className="my-4" />
-      {props.children}
-      <hr className="my-4" />
-    </main>
-    <Footer />
+
+    <BlurContainer>
+      <Navbar />
+      <Header title={props.title} />
+      <main>
+        <hr className="my-4" />
+        {props.children}
+        <hr className="my-4" />
+      </main>
+      <Footer />
+    </BlurContainer>
   </ThemeContextProvider>
 )

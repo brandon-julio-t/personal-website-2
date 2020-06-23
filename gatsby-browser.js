@@ -11,12 +11,14 @@ import "./src/styles/index.css"
 
 window.onload = () => {
   const { innerWidth, pJSDom, particlesJS } = window
-
   const id = "particles-js"
 
   const div = document.createElement("div")
   div.id = id
-  div.className = "fixed top-0 h-screen w-screen"
+  div.style.height = "100vh"
+  div.style.position = "fixed"
+  div.style.top = 0
+  div.style.width = "100vw"
   div.style.zIndex = -1
   document.body.appendChild(div)
 

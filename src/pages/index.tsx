@@ -1,13 +1,14 @@
 import React from "react"
-
-import ApolloClient from "apollo-boost"
-import fetch from "isomorphic-fetch"
-import { ApolloProvider } from "@apollo/react-hooks"
+import loadable from "@loadable/component"
 
 import Certificates from "../components/pages/index/certificates"
 import Layout from "../layouts"
 import PinnedGithubProjects from "../components/pages/index/pinned-github-projects"
 import TechnicalSkillsOverview from "../components/pages/index/technical-skills-overview"
+
+const ApolloClient = loadable.lib(() => import("apollo-boost"))
+const ApolloProviderLoadable = loadable.lib(() => import("@apollo/react-hooks"))
+const Fetch = loadable.lib(() => import("isomorphic-fetch"))
 
 export default () => (
   <Layout title="Home">
@@ -22,15 +23,29 @@ export default () => (
 
     <TechnicalSkillsOverview />
 
-    <ApolloProvider client={client}>
-      <PinnedGithubProjects />
-    </ApolloProvider>
+    <ApolloProviderLoadable>
+      {({ ApolloProvider }) => (
+        <ApolloClient>
+          {({ default: apolloClient }) => (
+            <Fetch>
+              {({ default: fetch }) => (
+                <ApolloProvider
+                  client={
+                    new apolloClient({
+                      uri: "/.netlify/functions/graphql",
+                      fetch,
+                    })
+                  }
+                >
+                  <PinnedGithubProjects />
+                </ApolloProvider>
+              )}
+            </Fetch>
+          )}
+        </ApolloClient>
+      )}
+    </ApolloProviderLoadable>
 
     <Certificates />
   </Layout>
 )
-
-const client = new ApolloClient({
-  uri: "/.netlify/functions/graphql",
-  fetch,
-})

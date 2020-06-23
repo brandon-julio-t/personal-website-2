@@ -1,7 +1,5 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Link } from "gatsby"
-
-import ThemeContext from "../../context/theme"
 
 interface ButtonProps {
   ariaLabel?: string
@@ -15,8 +13,6 @@ interface ButtonProps {
 }
 
 export default (props: ButtonProps) => {
-  const isLight = useContext(ThemeContext).theme === "light"
-
   const {
     ariaLabel,
     children,
@@ -29,7 +25,6 @@ export default (props: ButtonProps) => {
   } = props
 
   const base = `
-    ${isLight ? "bg-white" : "bg-black"}
     active:bg-gray-100
     active:shadow-lg
     border
