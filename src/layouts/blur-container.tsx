@@ -6,16 +6,8 @@ interface BlurContainerProps {
   children: React.ReactNode
 }
 
-export default (props: BlurContainerProps) => {
-  const isLight = useContext(ThemeContext).theme === "light"
-
-  return (
-    <div
-      className={`container mx-auto px-4 ${
-        isLight ? "blur-light" : "blur-dark"
-      }`}
-    >
-      {props.children}
-    </div>
-  )
-}
+export default (props: BlurContainerProps) => (
+  <div className={`container mx-auto px-4 blur rounded-lg`}>
+    {props.children}
+  </div>
+)

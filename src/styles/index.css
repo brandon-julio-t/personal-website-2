@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.blur-light {
+.blur {
   backdrop-filter: blur(0.125rem);
-}
-
-.blur-dark {
-  backdrop-filter: blur(1px);
 }

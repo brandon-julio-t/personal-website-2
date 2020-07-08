@@ -6,7 +6,6 @@ import ThemeProvider from "../../../../context/theme"
 
 import Button from "../../../common/button"
 import Card from "./card"
-import H3 from "./h3"
 
 interface PinnedRepositoriesCardsProps {
   nodes: PinnableItem[]
@@ -34,7 +33,9 @@ export default (props: PinnedRepositoriesCardsProps) => (
     {props.nodes.map((repo: PinnableItem, repoIdx: number) => (
       <div className="flex flex-col" key={repoIdx}>
         <Card className="flex-shrink">
-          <H3 className="capitalize">{repo.name.replace(/-/g, " ")}</H3>
+          <h3 className="capitalize font-bold text-xl">
+            {repo.name.replace(/-/g, " ")}
+          </h3>
 
           <p className="font-light">Created at: {prettyDate(repo.createdAt)}</p>
 

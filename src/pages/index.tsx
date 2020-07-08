@@ -13,7 +13,7 @@ const Fetch = loadable.lib(() => import("isomorphic-fetch"))
 export default () => (
   <Layout title="Home">
     <section className="text-center font-light">
-      <p className="grid grid-cols-2 divide-x max-w-xs mx-auto">
+      <p className="grid grid-cols-2 divide-x max-w-xs mx-auto text-lg">
         <span>Lifelong Learner</span>
         <span>Web Developer</span>
       </p>

@@ -12,7 +12,6 @@ import {
 
 import Button from "../../common/button"
 import Card from "./components/card"
-import H3 from "./components/h3"
 import IndexSection from "./components/index-section"
 
 export default () => (
@@ -20,7 +19,7 @@ export default () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {skills.map((skill, idx) => (
         <Card key={idx}>
-          <H3>{skill.label}</H3>
+          <h3 className="text-2xl">{skill.label}</h3>
 
           <ul>
             {skill.items.map((item, idx) => (
