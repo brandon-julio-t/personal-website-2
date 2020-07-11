@@ -11,6 +11,7 @@ import JavaScriptAlgorithmsAndDataStructures from "../../images/certificates/jav
 import JavaScriptBasic from "../../images/certificates/javascript-basic"
 import ReactBasic from "../../images/certificates/react-basic"
 import ResponsiveWebDesign from "../../images/certificates/responsive-web-design"
+import RestAPI from "../../images/certificates/rest-api"
 import ScrumFoundationProfessionalCertificate from "../../images/certificates/scrum-foundation-professional-certificate"
 import TokopediaStartSummit from "../../images/certificates/tokopedia-start-summit"
 import TypingSpeed from "../../images/certificates/typing-speed"
@@ -62,6 +63,11 @@ const certificates = [
     Component: ReactBasic,
     label: "React Basic Certificate by HackerRank",
     url: "https://bit.ly/2MK8kmd",
+  },
+  {
+    Component: RestAPI,
+    label: "Rest API Certificate",
+    url: "https://bit.ly/2Oh4RMV",
   },
   {
     Component: TokopediaStartSummit,

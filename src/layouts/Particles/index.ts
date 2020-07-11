@@ -17,35 +17,10 @@ export default class Particles {
     }
 
     prepareHTML()
-
-    const particlesCount =
-      window.innerWidth >= 1280
-        ? 64
-        : window.innerWidth >= 1024
-        ? 32
-        : window.innerWidth >= 768
-        ? 16
-        : 8
-
-    for (let i = 0; i < particlesCount; i++) circles.push(new Circle())
+    prepareCircles()
+    prepareEventListeners()
 
     animate()
-
-    window.onmousemove = (e: MouseEvent) => {
-      const { x, y } = e
-      mouseX = x
-      mouseY = y
-    }
-
-    window.onmouseleave = () => {
-      mouseX = -1
-      mouseY = -1
-    }
-
-    window.onresize = () => {
-      canvas.height = window.innerHeight
-      canvas.width = window.innerWidth
-    }
 
     function prepareHTML() {
       const id = "particles"
@@ -60,6 +35,37 @@ export default class Particles {
 
       document.body.appendChild(div)
       document.querySelector("#particles").appendChild(canvas)
+    }
+
+    function prepareCircles() {
+      const particlesCount =
+        window.innerWidth >= 1280
+          ? 64
+          : window.innerWidth >= 1024
+          ? 32
+          : window.innerWidth >= 768
+          ? 16
+          : 8
+
+      for (let i = 0; i < particlesCount; i++) circles.push(new Circle())
+    }
+
+    function prepareEventListeners() {
+      window.onmousemove = (e: MouseEvent) => {
+        const { x, y } = e
+        mouseX = x
+        mouseY = y
+      }
+
+      window.onmouseleave = () => {
+        mouseX = -1
+        mouseY = -1
+      }
+
+      window.onresize = () => {
+        canvas.height = window.innerHeight
+        canvas.width = window.innerWidth
+      }
     }
 
     function animate() {
