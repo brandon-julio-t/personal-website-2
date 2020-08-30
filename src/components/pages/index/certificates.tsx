@@ -19,10 +19,8 @@ import TypingSpeed from "../../images/certificates/typing-speed"
 export default () => (
   <IndexSection title="Certificates">
     <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
-      {certificates.map((cert, idx) => (
-        <Button ariaLabel={cert.label} href={cert.url} isIcon={true} key={idx}>
-          <cert.Component className="transition duration-300 shadow hover:shadow-md transform hover:scale-105" />
-        </Button>
+      {certificates.map(cert => (
+        <Certificate cert={cert} />
       ))}
     </div>
   </IndexSection>
@@ -90,3 +88,12 @@ const certificates = [
     url: "https://bit.ly/2WH3M4U",
   },
 ]
+
+function Certificate(props: any) {
+  const { cert } = props
+  return (
+    <Button ariaLabel={cert.label} href={cert.url} isIcon={true} key={cert.url}>
+      <cert.Component className="transition duration-300 shadow hover:shadow-md transform hover:scale-105" />
+    </Button>
+  )
+}

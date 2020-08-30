@@ -13,55 +13,66 @@ interface ButtonProps {
 }
 
 export default (props: ButtonProps) => {
-  const {
-    ariaLabel,
-    children,
-    className,
-    href,
-    isIcon,
-    onClick,
-    to,
-    type,
-  } = props
+  const { href, to } = props
 
-  const base = `
-    active:bg-gray-100
-    active:shadow-lg
-    border
-    border-gray-500
-    duration-300
-    focus:shadow-lg
-    hover:border-current
-    hover:shadow-md
-    px-3
-    py-2
-    rounded
-    shadow
-    transition-border
-    transition-shadow
-  `
+  if (to) return <InternalLink {...props} />
+  if (href) return <ExternalLink {...props} />
+  return <RegularButton {...props} />
+}
 
-  const style = isIcon ? className : `${base} ${className ?? ""}`
+const base = `
+  active:bg-gray-100
+  active:shadow-lg
+  border
+  border-gray-500
+  duration-300
+  focus:shadow-lg
+  hover:border-current
+  hover:shadow-md
+  px-3
+  py-2
+  rounded
+  shadow
+  transition-border
+  transition-shadow
+`
 
-  if (to)
-    return (
-      <Link aria-label={ariaLabel} className={style} to={to}>
-        {children}
-      </Link>
-    )
+function styleByIsIconFlag(props: ButtonProps) {
+  const { className, isIcon } = props
+  return isIcon ? className : `${base} ${className ?? ""}`
+}
 
-  if (href)
-    return (
-      <a
-        aria-label={ariaLabel}
-        className={style}
-        href={href}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        {children}
-      </a>
-    )
+function InternalLink(props: any) {
+  const { ariaLabel, children, to } = props
+  const style = styleByIsIconFlag(props)
+
+  return (
+    <Link aria-label={ariaLabel} className={style} to={to}>
+      {children}
+    </Link>
+  )
+}
+
+function ExternalLink(props: any) {
+  const { ariaLabel, children, href } = props
+  const style = styleByIsIconFlag(props)
+
+  return (
+    <a
+      aria-label={ariaLabel}
+      className={style}
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {children}
+    </a>
+  )
+}
+
+function RegularButton(props: any) {
+  const { ariaLabel, children, onClick, type } = props
+  const style = styleByIsIconFlag(props)
 
   return (
     <button

@@ -55,7 +55,7 @@
   "scripts": {
     "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "local": "gatsby build && gatsby serve",
-    "dev": "netlify dev",
+    "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,md}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

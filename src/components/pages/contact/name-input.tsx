@@ -19,7 +19,7 @@ export default () => (
       shadow
       transition-border
       transition-shadow
-      "
+    "
     name="Name"
     placeholder="Name (Optional)"
     type="text"

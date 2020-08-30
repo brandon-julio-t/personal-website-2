@@ -12,35 +12,40 @@ const PinnedRepositoriesCards = loadable(() =>
 )
 
 export default () => {
-  const { loading, error, data } = useQuery(query, {
-    variables: {
-      pinnedItemsLimit: 10,
-      repositoryLanguageLimit: 10,
-    },
-  })
+  const { loading, error, data } = useQuery(query, options)
 
   return (
     <IndexSection title="Pinned GitHub Projects">
-      {error ? null : (
-        <small className="text-center font-light mb-4 block">
-          Query count remaining: {data?.rateLimit?.remaining ?? "loading..."}
-          <br />
-          Will reset at:{" "}
-          {prettyDateTime(data?.rateLimit?.resetAt) ?? "loading..."}
-        </small>
-      )}
-
-      {loading ? (
-        <PinnedRepositoriesCardsMock />
-      ) : error ? (
-        <APIError message={error.message} />
-      ) : (
-        <PinnedRepositoriesCards
-          fallback={<PinnedRepositoriesCardsMock />}
-          nodes={data?.viewer?.pinnedItems?.nodes}
-        />
-      )}
+      <RateLimitInfo data={data} error={error} />
+      <Body data={data} error={error} loading={loading} />
     </IndexSection>
+  )
+}
+
+function RateLimitInfo(props: any) {
+  const { data, error } = props
+
+  if (error) return null
+
+  return (
+    <small className="text-center font-light mb-4 block">
+      Query count remaining: {data?.rateLimit?.remaining ?? "loading..."}
+      <br />
+      Will reset at: {prettyDateTime(data?.rateLimit?.resetAt) ?? "loading..."}
+    </small>
+  )
+}
+
+function Body(props: any) {
+  const { data, error, loading } = props
+
+  if (loading) return <PinnedRepositoriesCardsMock />
+  if (error) return <APIError message={error.message} />
+  return (
+    <PinnedRepositoriesCards
+      fallback={<PinnedRepositoriesCardsMock />}
+      nodes={data?.viewer?.pinnedItems?.nodes}
+    />
   )
 }
 
@@ -70,6 +75,13 @@ const query: DocumentNode = gql`
     }
   }
 `
+
+const options = {
+  variables: {
+    pinnedItemsLimit: 10,
+    repositoryLanguageLimit: 10,
+  },
+}
 
 const prettyDateTime = (date: string | null): string =>
   date &&

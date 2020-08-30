@@ -11,5 +11,5 @@ import "./src/styles/index.css"
 window.onload = async () => {
   const Particles = await import("./src/layouts/Particles/index")
 
-  Particles.default.init(process.env.NODE_ENV === `development`)
+  Particles.default.init({ showFPS: process.env.NODE_ENV === `development` })
 }

@@ -8,7 +8,7 @@ let mouseX: number = -1
 let mouseY: number = -1
 
 export default class Particles {
-  static async init(showFPS: boolean) {
+  static async init({ showFPS }) {
     if (showFPS) {
       const { default: Stats } = await import("stats.js")
       stats = new Stats()
@@ -19,7 +19,6 @@ export default class Particles {
     prepareHTML()
     prepareCircles()
     prepareEventListeners()
-
     animate()
 
     function prepareHTML() {
@@ -55,11 +54,6 @@ export default class Particles {
         const { x, y } = e
         mouseX = x
         mouseY = y
-      }
-
-      window.onmouseleave = () => {
-        mouseX = -1
-        mouseY = -1
       }
 
       window.onresize = () => {

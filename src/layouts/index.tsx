@@ -15,26 +15,32 @@ interface LayoutProps {
 }
 
 export default (props: LayoutProps) => {
-  const { background, children, title } = props
+  const { title } = props
 
   return (
     <ThemeContextProvider>
       <SEO title={title} />
 
-      {background ? (
-        children
-      ) : (
-        <BlurContainer>
-          <Navbar />
-          <Header title={title} />
-          <main>
-            <hr className="my-4" />
-            {children}
-            <hr className="my-4" />
-          </main>
-          <Footer />
-        </BlurContainer>
-      )}
+      <Body {...props} />
     </ThemeContextProvider>
+  )
+}
+
+function Body(props: any) {
+  const { background, children, title } = props
+
+  if (background) return children
+
+  return (
+    <BlurContainer>
+      <Navbar />
+      <Header title={title} />
+      <main>
+        <hr className="my-4" />
+        {children}
+        <hr className="my-4" />
+      </main>
+      <Footer />
+    </BlurContainer>
   )
 }

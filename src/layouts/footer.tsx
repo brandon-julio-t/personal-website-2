@@ -16,10 +16,12 @@ import {
 
 import PageProvider from "../context/theme"
 
-import Button from "../components/common/button" // @ts-ignore
-import FreeCodeCamp from "../images/free-code-camp-logo.svg" // @ts-ignore
-
-const NetlifyDark = loadable(() => import("../images/netlify-dark.svg")) // @ts-ignore
+import Button from "../components/common/button"
+// @ts-ignore
+import FreeCodeCamp from "../images/free-code-camp-logo.svg"
+// @ts-ignore
+const NetlifyDark = loadable(() => import("../images/netlify-dark.svg"))
+// @ts-ignore
 const NetlifyLight = loadable(() => import("../images/netlify-light.svg"))
 
 export default () => {
@@ -28,22 +30,7 @@ export default () => {
   return (
     <footer className="flex flex-col">
       <section className="flex flex-row flex-wrap justify-center">
-        {socials.map((social, idx) =>
-          social.label === "Email" ? (
-            <a aria-label={social.label} href={social.href} key={idx}>
-              {social.Component}
-            </a>
-          ) : (
-            <Button
-              ariaLabel={social.label}
-              href={social.href}
-              isIcon={true}
-              key={idx}
-            >
-              {social.Component}
-            </Button>
-          )
-        )}
+        {socials.map(social => componentBySocialLabel(social))}
       </section>
 
       <section className="flex flex-col my-5">
@@ -139,6 +126,7 @@ export default () => {
     </footer>
   )
 }
+
 const socials = [
   {
     label: "Email",
@@ -196,3 +184,27 @@ const socials = [
     ),
   },
 ]
+
+function componentBySocialLabel(social: {
+  label: string
+  href: string
+  Component: JSX.Element
+}): JSX.Element {
+  if (social.label === "Email")
+    return (
+      <a aria-label={social.label} href={social.href} key={social.href}>
+        {social.Component}
+      </a>
+    )
+
+  return (
+    <Button
+      ariaLabel={social.label}
+      href={social.href}
+      isIcon={true}
+      key={social.href}
+    >
+      {social.Component}
+    </Button>
+  )
+}

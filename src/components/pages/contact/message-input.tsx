@@ -17,7 +17,7 @@ export default () => (
       shadow
       transition-border
       transition-shadow
-      "
+    "
     name="Message"
     placeholder="Message (Required)"
     required

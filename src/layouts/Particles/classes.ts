@@ -50,8 +50,8 @@ export class Circle {
   horizontalSpeed: number
   verticalSpeed: number
 
-  left: boolean
-  up: boolean
+  moveLeft: boolean
+  moveUp: boolean
 
   constructor() {
     this.x = randomX()
@@ -63,13 +63,13 @@ export class Circle {
     this.horizontalSpeed = randomSpeed()
     this.verticalSpeed = randomSpeed()
 
-    this.left = Math.random() >= 0.5
-    this.up = Math.random() >= 0.5
+    this.moveLeft = Math.random() >= 0.5
+    this.moveUp = Math.random() >= 0.5
   }
 
   accelerate() {
-    this.x += this.left ? -this.horizontalSpeed : this.horizontalSpeed
-    this.y += this.up ? -this.verticalSpeed : this.verticalSpeed
+    this.x += this.moveLeft ? -this.horizontalSpeed : this.horizontalSpeed
+    this.y += this.moveUp ? -this.verticalSpeed : this.verticalSpeed
   }
 
   drawCircle() {
@@ -139,10 +139,14 @@ export class Circle {
   }
 
   wrapCircle() {
-    if (this.left && this.x <= 0) this.x = canvas.width
-    if (!this.left && this.x >= canvas.width) this.x = 0
+    const outOfLeftBound = this.moveLeft && this.x <= 0
+    const outOfRightBound = !this.moveLeft && this.x >= canvas.width
+    const outOfTopBound = this.moveUp && this.y <= 0
+    const outOfBottomBound = !this.moveUp && this.y >= canvas.height
 
-    if (this.up && this.y <= 0) this.y = canvas.height
-    if (!this.up && this.y >= canvas.height) this.y = 0
+    if (outOfLeftBound) this.x = canvas.width
+    if (outOfRightBound) this.x = 0
+    if (outOfTopBound) this.y = canvas.height
+    if (outOfBottomBound) this.y = 0
   }
 }
