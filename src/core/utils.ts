@@ -1,5 +1,5 @@
 import { COLORS, LINKED_LINE_RANGE, MAX_RADIUS } from "./constants"
-import { Color } from "./classes"
+import Color from "./color"
 
 const pythagoras = (a: number, b: number): number => Math.sqrt(a ** 2 + b ** 2)
 

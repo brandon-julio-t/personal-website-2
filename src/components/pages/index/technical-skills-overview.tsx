@@ -1,5 +1,5 @@
 import Icon from "@mdi/react"
-import React from "react"
+import * as React from "React"
 
 import {
   mdiDatabase,

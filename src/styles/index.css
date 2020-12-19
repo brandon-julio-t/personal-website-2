@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-.blur {
-  backdrop-filter: blur(0.125rem);
+@layer utilities {
+  ::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply rounded-full shadow-inner;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full shadow-inner bg-white bg-opacity-75 hover:bg-opacity-90;
+  }
+
+  .bg-blur-sm {
+    backdrop-filter: blur(0.125rem);
+  }
+
+  .bg-blur {
+    backdrop-filter: blur(0.25rem);
+  }
+
+  .bg-blur-md {
+    backdrop-filter: blur(0.5rem);
+  }
+
+  .bg-blur-lg {
+    backdrop-filter: blur(1rem);
+  }
+
+  .bg-blur-xl {
+    backdrop-filter: blur(1.5rem);
+  }
+
+  .bg-blur-2xl {
+    backdrop-filter: blur(2rem);
+  }
+
+  .z-none {
+    z-index: -1;
+  }
 }

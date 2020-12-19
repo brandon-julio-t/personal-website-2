@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 
 import Layout from "../layouts"
 import ToggleThemeButton from "../layouts/toggle-theme-button"

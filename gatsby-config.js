@@ -12,8 +12,8 @@ module.exports = {
 
   plugins: [
     `gatsby-plugin-loadable-components-ssr`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-sharp`,
@@ -41,8 +41,6 @@ module.exports = {
         icon: `src/images/icon.jpg`,
       },
     },
-
-    "gatsby-plugin-offline",
 
     {
       resolve: `gatsby-plugin-google-analytics`,

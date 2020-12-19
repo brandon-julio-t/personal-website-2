@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "React"
 import loadable from "@loadable/component"
 import { Link } from "gatsby"
 import { mdiHome, mdiFileDocument, mdiTools, mdiChat } from "@mdi/js"

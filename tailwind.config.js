@@ -1,12 +1,12 @@
 module.exports = {
-  purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
+  purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       transitionProperty: {
-        border: "border-color",
-      },
-    },
+        border: "border-color"
+      }
+    }
   },
   variants: {},
-  plugins: [],
+  plugins: []
 }

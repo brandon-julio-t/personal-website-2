@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "React"
 import loadable from "@loadable/component"
 import { gql, DocumentNode } from "apollo-boost"
 import { useQuery } from "@apollo/react-hooks"
@@ -7,8 +7,8 @@ import IndexSection from "./components/index-section"
 import PinnedRepositoriesCardsMock from "./components/pinned-repositories-cards-mock"
 
 const APIError = loadable(() => import("./components/api-error"))
-const PinnedRepositoriesCards = loadable(() =>
-  import("./components/pinned-repositories-cards")
+const PinnedRepositoriesCards = loadable(
+  () => import("./components/pinned-repositories-cards")
 )
 
 export default () => {

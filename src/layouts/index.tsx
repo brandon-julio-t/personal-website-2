@@ -1,4 +1,5 @@
-import React from "react"
+import * as React from "react"
+import { ReactNode } from "react"
 
 import { ThemeContextProvider } from "../context/theme"
 
@@ -10,7 +11,7 @@ import SEO from "./seo"
 
 interface LayoutProps {
   background?: boolean
-  children: React.ReactNode
+  children: ReactNode
   title: string
 }
 
@@ -29,7 +30,9 @@ export default (props: LayoutProps) => {
 function Body(props: any) {
   const { background, children, title } = props
 
-  if (background) return children
+  if (background) {
+    return children
+  }
 
   return (
     <BlurContainer>

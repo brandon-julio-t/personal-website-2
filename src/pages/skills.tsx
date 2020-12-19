@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "React"
 
 import Databases from "../components/pages/skills/databases"
 import Frameworks from "../components/pages/skills/frameworks"

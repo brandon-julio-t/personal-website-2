@@ -1,10 +1,8 @@
 import Img from "gatsby-image"
-import React from "react"
+import * as React from "React"
 import { graphql, useStaticQuery } from "gatsby"
 
-import { ImageProps } from "../image-props"
-
-export default (props: ImageProps) => {
+export default props => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "Responsive Web Design.png" }) {

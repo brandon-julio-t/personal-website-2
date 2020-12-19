@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "React"
 
 interface SkillItems {
   title: string
@@ -24,7 +24,7 @@ export default (props: SkillSectionProps) => (
 
 function ListItem(props: any) {
   const { category } = props
-  
+
   return (
     <li className="my-2">
       <h3 className="font-medium text-xl">{category.title}</h3>
